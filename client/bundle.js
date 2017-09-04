@@ -22423,23 +22423,9 @@ var App = function (_Component) {
     }
 
     _createClass(App, [{
-        key: 'click',
-        value: function click() {
-            console.log('clicked');
-        }
-    }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement(
-                'div',
-                null,
-                'Hello from comp',
-                _react2.default.createElement(
-                    'button',
-                    { onClick: this.click },
-                    'Click'
-                )
-            );
+            return _react2.default.createElement('div', null);
         }
     }]);
 
