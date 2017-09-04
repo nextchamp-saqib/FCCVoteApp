@@ -1,18 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+
+body{
+    background-color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+/* NavBar */
 .navbar{
+    background-color: #3F51B5;
     width: 100%;
     z-index: 5;
     border-radius: 0;
-    box-shadow: 0px 2px 15px #3C3939;
+    box-shadow: 0px 1px 5px rgba(0,0,0,.26);
+    font-size: 13px;
 }
+.navbar .navbar-nav{
+    padding: 0px;
+}
+
+/* Home */
 .container-fluid{
     padding: 0;
 }
-.container-fluid .card{
+.row .card{
+    background-color: #00838F;
+    color: white;
     border-radius: 0;
-    border: 1px solid gray;
+    border: 1px solid black;
 }
 .jumbotron{
-    background-color: #4DB6AC;
+    background-color: #80DEEA;
     border-radius: 0;
     text-align: center;
     padding: 30px;
@@ -26,4 +42,75 @@
 }
 .card-text{
     font-size: 12px;
+}
+
+
+/* Login */
+.login-form{
+    margin-top: 50px;
+    min-width:  478px;
+}
+
+.login-form h3{
+    font-size: 30px;
+    text-align: center;
+}
+.local{
+    border-right: 1px solid black;
+    margin: 5px 0 20px auto;
+    padding: 10px;
+    width: 40%;
+    min-width: 200px;
+    max-width: 262px;
+}
+
+.btn-login{
+    border: none;
+    background: none;
+    float: right;
+    padding: 0;
+    margin: 0;
+    border-radius: 100%;
+    cursor: pointer;
+}
+button:focus{
+    outline: 0;
+}
+
+.credentials{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 12px;
+    padding: 0px;
+    margin-top: 0px;
+}
+.credentials div{
+    flex-grow: 1;
+}
+.credentials input{
+    width: 100%;
+    min-width: 100px;
+}
+
+.google{
+    border-left: 1px solid black;
+    margin: 5px auto 20px 0;
+    padding: 10px;
+    width: 40%;
+    min-width: 200px;
+    max-width: 262px;
+}
+.btn-google{
+    color: #fff;
+    background-color: #dd4b39;
+    border: 1px solid rgba(0,0,0,0.6);
+    width: 100%;
+    margin: 15px auto;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+}
+.btn-google:hover{
+    background-color: #ca3523;
+    border-color:rgba(0,0,0,0.2)
 }
