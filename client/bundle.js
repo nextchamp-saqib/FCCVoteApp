@@ -22405,6 +22405,14 @@ var _react = __webpack_require__(49);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _navbar = __webpack_require__(185);
+
+var _navbar2 = _interopRequireDefault(_navbar);
+
+var _home = __webpack_require__(186);
+
+var _home2 = _interopRequireDefault(_home);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22425,7 +22433,12 @@ var App = function (_Component) {
     _createClass(App, [{
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', null);
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(_navbar2.default, null),
+                _react2.default.createElement(_home2.default, null)
+            );
         }
     }]);
 
@@ -22433,6 +22446,253 @@ var App = function (_Component) {
 }(_react.Component);
 
 module.exports = App;
+
+/***/ }),
+/* 185 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(49);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var NavBar = function (_Component) {
+    _inherits(NavBar, _Component);
+
+    function NavBar() {
+        _classCallCheck(this, NavBar);
+
+        return _possibleConstructorReturn(this, (NavBar.__proto__ || Object.getPrototypeOf(NavBar)).apply(this, arguments));
+    }
+
+    _createClass(NavBar, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "nav",
+                { className: "navbar navbar-toggleable-sm navbar-inverse bg-inverse" },
+                _react2.default.createElement(
+                    "button",
+                    { className: "navbar-toggler navbar-toggler-right", type: "button", "data-toggle": "collapse", "data-target": "#navbarSupportedContent", "aria-controls": "navbarSupportedContent", "aria-expanded": "false", "aria-label": "Toggle navigation" },
+                    _react2.default.createElement("span", { className: "navbar-toggler-icon" })
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "collapse navbar-collapse", id: "navbarSupportedContent" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "navbar-nav justify-content" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "nav-item active" },
+                            _react2.default.createElement(
+                                "a",
+                                { className: "nav-link", href: "/" },
+                                "Home ",
+                                _react2.default.createElement(
+                                    "span",
+                                    { className: "sr-only" },
+                                    "(current)"
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "nav-item" },
+                            _react2.default.createElement(
+                                "a",
+                                { className: "nav-link", href: "#" },
+                                "Profile"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "nav-item" },
+                            _react2.default.createElement(
+                                "a",
+                                { className: "nav-link", href: "#" },
+                                "Log In"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "nav-item" },
+                            _react2.default.createElement(
+                                "a",
+                                { className: "nav-link", href: "#" },
+                                "Sign Out"
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return NavBar;
+}(_react.Component);
+
+exports.default = NavBar;
+
+/***/ }),
+/* 186 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(49);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Home = function (_Component) {
+    _inherits(Home, _Component);
+
+    function Home() {
+        _classCallCheck(this, Home);
+
+        return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
+    }
+
+    _createClass(Home, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                { className: "container-fluid" },
+                _react2.default.createElement(
+                    "div",
+                    { className: "jumbotron m-0" },
+                    _react2.default.createElement(
+                        "h1",
+                        { className: "display-3" },
+                        "VoteCast"
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        { className: "lead" },
+                        "...your ideas ",
+                        _react2.default.createElement("i", { className: "fa fa-lightbulb-o" })
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-sm-3 card" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "card-block" },
+                            _react2.default.createElement(
+                                "h3",
+                                { className: "card-title" },
+                                _react2.default.createElement("span", { className: "fa fa-thumbs-o-up" }),
+                                "\xA0Vote"
+                            ),
+                            _react2.default.createElement(
+                                "p",
+                                { className: "card-text" },
+                                "Vote for current polls"
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-sm-3 card" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "card-block" },
+                            _react2.default.createElement(
+                                "h3",
+                                { className: "card-title" },
+                                _react2.default.createElement("span", { className: "fa fa-plus-circle" }),
+                                "\xA0Create"
+                            ),
+                            _react2.default.createElement(
+                                "p",
+                                { className: "card-text" },
+                                "Create your own poll by signing up or loging in using Google account"
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-sm-3 card" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "card-block" },
+                            _react2.default.createElement(
+                                "h3",
+                                { className: "card-title" },
+                                _react2.default.createElement("span", { className: "fa fa-eye" }),
+                                "\xA0View"
+                            ),
+                            _react2.default.createElement(
+                                "p",
+                                { className: "card-text" },
+                                "View results of current polls in real-time"
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-sm-3 card" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "card-block" },
+                            _react2.default.createElement(
+                                "h3",
+                                { className: "card-title" },
+                                _react2.default.createElement("span", { className: "fa fa-share-alt" }),
+                                "\xA0Share"
+                            ),
+                            _react2.default.createElement(
+                                "p",
+                                { className: "card-text" },
+                                "Share your favorite polls with your friends"
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Home;
+}(_react.Component);
+
+exports.default = Home;
 
 /***/ })
 /******/ ]);
