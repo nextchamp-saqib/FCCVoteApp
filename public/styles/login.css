@@ -1,0 +1,110 @@
+.login-form{
+    margin-top: 50px;
+}
+.login-form h3{
+    font-size: 35px;
+    text-align: center;
+}
+.login-form .form{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgba(0,0,0,0.26);
+    width: 70%;
+    margin: 0 auto;
+    padding: 0;
+    padding-top: 10px;
+}
+.login-form .box{
+    /* border: 1px solid rgba(0,0,0,0.26); */
+    width: 50%;
+    flex-grow: 1;
+    padding: 10px;
+}
+.box .flex{
+    display: flex;
+    padding: 5px;
+    width: 100%;
+    flex-wrap: wrap;
+    text-align: right;
+    justify-content: flex-end;
+}
+.box .flex div{
+    font-size: 13px;
+    width: 70%;
+    flex-grow: 1;
+}
+.box .flex .label{
+    width: 30%;
+    padding: 0 10px;
+}
+
+.box .flex input{
+    width: 100%;
+    outline-color : rgba(0,0,0,0.16);
+    outline-width: 0.5mm;
+}
+.login-form .btn-login{
+    border: 0.3mm solid rgba(0,0,0,0.26);
+    width: 43px; 
+    background: none;
+    padding: 0 3px;
+    cursor: pointer;
+}
+.login-form .btn-login:focus{
+    outline: none;
+    border: 0.3mm solid rgba(0,0,0,0.46);
+    background-color: rgba(0,0,0,0.05); 
+}
+
+.login-form .btn-google{
+    color: #fff;
+    background-color: #dd4b39;
+    border: 1px solid rgba(0,0,0,0.6);
+    width: 100%;
+    margin: 15px auto;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+}
+.login-form .btn-google:hover{
+    background-color: #ca3523;
+    border-color:rgba(0,0,0,0.2)
+}
+.login-form .btn-google:focus{
+    outline: none;
+    border: 1px solid rgba(0,0,0,0.6);
+}
+
+@media (max-width: 800px) {
+    .login-form .form{
+        flex-direction: column;
+    }
+    .login-form .box{
+        width: 100%;
+    }
+    .login-form .btn-google{
+        max-width: 50%;
+        margin: 15px 25%;
+    }
+}
+
+
+@media (max-width: 580px) {
+    .login-form .form{
+        width: 90%;
+        flex-direction: column;
+    }
+    .login-form .box{
+        width: 100%;
+    }
+    .login-form .flex{
+        text-align: left;
+    }
+    .login-form .flex .label{
+        width: 200px;
+    }
+    .login-form .btn-google{
+        min-width: 68%;
+        margin: 15px 16%;
+    }
+}

@@ -22417,6 +22417,10 @@ var _login = __webpack_require__(187);
 
 var _login2 = _interopRequireDefault(_login);
 
+var _signup = __webpack_require__(188);
+
+var _signup2 = _interopRequireDefault(_signup);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22457,10 +22461,6 @@ module.exports = App;
 
 "use strict";
 
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -22551,7 +22551,7 @@ var NavBar = function (_Component) {
     return NavBar;
 }(_react.Component);
 
-exports.default = NavBar;
+module.exports = NavBar;
 
 /***/ }),
 /* 186 */
@@ -22559,10 +22559,6 @@ exports.default = NavBar;
 
 "use strict";
 
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -22695,7 +22691,7 @@ var Home = function (_Component) {
     return Home;
 }(_react.Component);
 
-exports.default = Home;
+module.exports = Home;
 
 /***/ }),
 /* 187 */
@@ -22703,10 +22699,6 @@ exports.default = Home;
 
 "use strict";
 
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -22744,39 +22736,51 @@ var Login = function (_Component) {
                 ),
                 _react2.default.createElement(
                     "div",
-                    { className: "row" },
+                    { className: "form" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-sm-6 local" },
+                        { className: "box" },
                         _react2.default.createElement(
                             "div",
-                            { className: "credentials" },
+                            { className: "flex" },
                             _react2.default.createElement(
                                 "div",
-                                { className: "p-2" },
-                                "\xA0E-mail ID :"
+                                { className: "label" },
+                                "E-Mail ID:"
                             ),
                             _react2.default.createElement(
                                 "div",
-                                { className: "p-2" },
-                                _react2.default.createElement("input", { type: "text", id: "email" })
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "p-2" },
-                                "Password :"
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "p-2" },
-                                _react2.default.createElement("input", { type: "text", id: "email" })
+                                null,
+                                _react2.default.createElement("input", { id: "email", type: "text" })
                             )
                         ),
-                        _react2.default.createElement("button", { className: "btn-login fa fa-2x fa-arrow-circle-right" })
+                        _react2.default.createElement(
+                            "div",
+                            { className: "flex" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "label" },
+                                "Password:"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                null,
+                                _react2.default.createElement("input", { id: "pass-login", type: "text" })
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "flex" },
+                            _react2.default.createElement(
+                                "button",
+                                { className: "btn-login" },
+                                _react2.default.createElement("i", { className: " fa fa-2x fa-arrow-circle-right" })
+                            )
+                        )
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-sm-6 google" },
+                        { className: "box" },
                         _react2.default.createElement(
                             "button",
                             { className: "btn-google" },
@@ -22792,7 +22796,140 @@ var Login = function (_Component) {
     return Login;
 }(_react.Component);
 
-exports.default = Login;
+module.exports = Login;
+
+/***/ }),
+/* 188 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(49);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Signup = function (_Component) {
+    _inherits(Signup, _Component);
+
+    function Signup() {
+        _classCallCheck(this, Signup);
+
+        return _possibleConstructorReturn(this, (Signup.__proto__ || Object.getPrototypeOf(Signup)).apply(this, arguments));
+    }
+
+    _createClass(Signup, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                { className: "signup-form" },
+                _react2.default.createElement(
+                    "h3",
+                    null,
+                    "Sign up"
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "form" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "flex" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "label" },
+                            "First Name:"
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            null,
+                            _react2.default.createElement("input", { id: "name", type: "text" })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "flex" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "label" },
+                            "Last Name:"
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            null,
+                            _react2.default.createElement("input", { id: "name2", type: "text" })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "flex" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "label" },
+                            "E-mail ID:"
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            null,
+                            _react2.default.createElement("input", { id: "email", type: "text" })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "flex" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "label" },
+                            "Password:"
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            null,
+                            _react2.default.createElement("input", { id: "pass-signup", type: "password" })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "flex" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "label" },
+                            "Confirm Password:"
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            null,
+                            _react2.default.createElement("input", { id: "pass-confirm", type: "password" })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "flex" },
+                        _react2.default.createElement(
+                            "button",
+                            { className: "btn-signup" },
+                            _react2.default.createElement("i", { className: " fa fa-2x fa-arrow-circle-right" })
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Signup;
+}(_react.Component);
+
+module.exports = Signup;
 
 /***/ })
 /******/ ]);

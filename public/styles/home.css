@@ -1,0 +1,25 @@
+.container-fluid{
+    padding: 0;
+}
+.row .card{
+    background-color: #00838F;
+    color: white;
+    border-radius: 0;
+    border: 1px solid black;
+}
+.jumbotron{
+    background-color: #80DEEA;
+    border-radius: 0;
+    text-align: center;
+    padding: 30px;
+}
+.jumbotron .lead{
+    font-size: 17px;
+    margin-left: 190px;
+}
+.card-title{
+    font-size: 23px;
+}
+.card-text{
+    font-size: 12px;
+}

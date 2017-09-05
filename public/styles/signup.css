@@ -1,0 +1,61 @@
+.signup-form{
+    margin-top: 50px;
+}
+.signup-form h3{
+    font-size: 35px;
+    text-align: center;
+}
+.signup-form .form{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0,0,0,0.5);
+    padding: 15px;
+    margin: 0 auto;
+    width: 60%;
+}
+.signup-form .flex{
+    display: flex;
+    padding: 5px;
+    width: 100%;
+    flex-wrap: wrap;
+    text-align: right;
+    justify-content: flex-end;
+}
+.signup-form .flex div{
+    font-size: 13px;
+    width: 70%;
+    flex-grow: 1;
+}
+.signup-form .flex .label{
+    width: 30%;
+    padding: 0 10px;
+}
+.signup-form .flex input{
+    width: 100%;
+    outline-color : rgba(0,0,0,0.16);
+    outline-width: 0.5mm;
+}
+
+.signup-form .btn-signup{
+    border: 0.3mm solid rgba(0,0,0,0.26);
+    width: 43px; 
+    background: none;
+    padding: 0 3px;
+    cursor: pointer;
+}
+.btn-signup:focus{
+    outline: none;
+    border: 0.3mm solid rgba(0,0,0,0.46);
+    background-color: rgba(0,0,0,0.05);
+}
+@media (max-width: 580px) {
+    .signup-form .form{
+        width: 90%;
+    }
+    .signup-form .flex{
+        text-align: left;
+    }
+    .signup-form .flex .label{
+        width: 200px;
+    }   
+}

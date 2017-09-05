@@ -5,25 +5,21 @@ class Login extends Component {
         return (
         <div className="login-form">
             <h3>Login</h3>
-            <div className="row">
-                <div className="col-sm-6 local">
-                    <div className="credentials">
-                        <div className="p-2">
-                            &nbsp;E-mail ID :
-                        </div>
-                        <div className="p-2">
-                            <input type="text" id="email" />
-                        </div>
-                        <div className="p-2">
-                            Password :
-                        </div>
-                        <div className="p-2">
-                            <input type="text" id="email" />
-                        </div>
+            <div className="form">
+                <div className="box">
+                    <div className="flex">
+                        <div className="label">E-Mail ID:</div>
+                        <div><input id="email" type="text" /></div>
                     </div>
-                    <button className="btn-login fa fa-2x fa-arrow-circle-right"></button>
+                    <div className="flex">
+                        <div className="label">Password:</div>
+                        <div><input id="pass-login" type="text" /></div>
+                    </div>
+                    <div className="flex">
+                        <button className="btn-login"><i className=" fa fa-2x fa-arrow-circle-right"/></button>
+                    </div>
                 </div>
-                <div className="col-sm-6 google">
+                <div className="box">
                     <button className="btn-google">
                         <i className="fa fa-google-plus"/>&nbsp;&nbsp;Sign in with Google
                     </button>
@@ -34,4 +30,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+module.exports = Login;
