@@ -8,7 +8,8 @@
 @import url('./login.css');
 /* SignUp */
 @import url('./signup.css');
-
+/* Profile */
+@import url('./profile.css');
 body{
     background-color: white;
     font-family: 'Open Sans', sans-serif;

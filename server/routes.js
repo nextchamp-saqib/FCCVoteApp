@@ -1,21 +1,32 @@
 const fs = require('fs');
 const path = require('path');
+
 var router = require('express').Router();
 var React = require('react');
 var ReactDOMServer = require('react-dom/server');
+var ReactRouter = require('react-router');
 var renderToString = ReactDOMServer.renderToString;
-var App = require('../public/Components/app');
 
+router.get('*', function(request, response) {
+    var props = { title: 'Universal React' };
 
-router.get('/',(req, res) => {
-    var html = fs.readFileSync(
-        path.resolve(__dirname, '../client/index.html'),'utf-8'
-    );
-    var renderString = renderToString(
-        React.createElement(App)
-    );
-    var render = html.replace('{SSR}',renderString)
-    res.send(render);
+    ReactRouter.match({
+        routes: require('../client/routes'),
+        location: request.url
+    }, function(error, redirectLocation, renderProps) {
+        if (renderProps) {
+            var html = ReactDOMServer.renderToString(
+                <ReactRouter.RouterContext {...renderProps}
+                    createElement={function(Component, renderProps) {
+                        return <Component {...renderProps} />;
+                    }}
+                />
+            );
+            response.send(html);
+        } else {
+            response.status(404).send('Not Found');
+        }
+    });
 });
 
 module.exports = router;

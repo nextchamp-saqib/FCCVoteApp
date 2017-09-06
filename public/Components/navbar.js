@@ -4,7 +4,7 @@ class NavBar extends Component {
     renderUser(){
         return (
             <div className="nav-item">
-                <a className="nav-link" href="#"><i className="fa fa-sign-in"/> Log In</a>
+                <a className="nav-link" href="/login"><i className="fa fa-sign-in"/> Log In</a>
             </div>
         );
     }
@@ -20,9 +20,14 @@ class NavBar extends Component {
                     <a className="nav-link" href="/"><i className="fa fa-home"/> Home <span className="sr-only">(current)</span></a>
                 </div>
                 <div className="nav-item">
-                    <a className="nav-link" href="#"><i className="fa fa-user"/> Profile</a>
+                    <a className="nav-link" href="/profile"><i className="fa fa-user"/> Profile</a>
                 </div>
-                {this.renderUser()}
+                <div className="nav-item">
+                    <a className="nav-link" href="/login"><i className="fa fa-sign-in"/> Log In</a>
+                </div>
+                <div className="nav-item">
+                    <a className="nav-link" href="/signup"><i className="fa fa-user-plus"/> Create Acoount</a>
+                </div>
             </div>
         </div>
     </nav>

@@ -1,0 +1,110 @@
+.profile{
+    margin-top: 50px;
+    /* border: 1px solid rgba(0,0,0,0.25); */
+    text-align: center;
+}
+.profile h3{
+    font-size: 35px;
+}
+.profile h5{
+    width: 100%;
+}
+.profile-img{
+    width: 95px;
+    height: 95px;
+    margin: 5px auto 0 auto;
+    padding: 5px;
+    border: 1px solid rgba(0,0,0,0.25);
+}
+.user-info{
+    border-top: 1px solid rgba(0,0,0,0.25);
+    width: 70%;
+    margin: 0px auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.profile-info{
+    padding-right: 17%;
+    justify-content: flex-end;
+}
+
+.profile-info .flex{
+    display: flex;
+    padding: 5px;
+    width: 100%;
+    flex-wrap: wrap;
+    text-align: right;
+}
+.profile-info .flex div{
+    font-size: 13px;
+    width: 58%;
+    flex-grow: 1;
+}
+.profile-info .flex .label{
+    width: 30%;
+    padding: 0 10px;
+}
+.profile-info .flex input{
+    width: 100%;
+    outline-color : rgba(0,0,0,0.16);
+    outline-width: 0.5mm;
+}
+
+.btn-update{
+    border: 0.3mm solid rgba(0,0,0,0.26);
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgba(218, 27, 27, 0.70);
+    padding: 0 3px;
+    cursor: pointer;
+    min-width: 79px;
+    margin-left: 83%;
+}
+.btn-update:focus{
+    outline: none;
+    border: 0.3mm solid rgba(0,0,0,0.46);
+    background-color: rgba(218, 27, 27, 0.90);
+}
+.btn-update:hover{
+    background-color: rgba(218, 27, 27, 0.90);
+}
+
+.polls-info{
+    border-top: 1px solid rgba(0,0,0,0.25);
+    width: 70%;
+    margin: 0 auto;
+    padding: 15px;
+    padding-left: 12%;
+    padding-right: 12%;
+}
+.polls-list{
+    padding: 5px;
+}
+.poll{
+    border: 1px solid rgba(0,0,0,0.25);
+    width: 100%;
+    margin: 5px auto;
+}
+
+@media (max-width: 580px) {
+    .user-info{
+        width: 90%;
+        padding: 5px;
+    }
+    .profile-info{
+        padding: 0px;
+    }
+    .profile-info .flex{
+        text-align: left;
+    }
+    .profile-info .flex .label{
+        width: 250px;
+    }
+    .btn-update{
+        margin-left: 0px;
+    }
+    .polls-info{
+        width: 90%;
+        padding: 5px;
+    }
+}
