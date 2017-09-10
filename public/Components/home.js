@@ -5,7 +5,7 @@ class Home extends Component {
         return (
             <div className="container-fluid">
                 <div className="jumbotron m-0">
-                    <h1 className="display-3">VoteCast</h1>
+                    <h1>VoteCast</h1>
                     <p className="lead">...your ideas <i className="fa fa-lightbulb-o" /></p>
                 </div>
                 <div className="row">

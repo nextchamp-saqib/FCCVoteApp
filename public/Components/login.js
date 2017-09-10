@@ -23,6 +23,9 @@ class Login extends Component {
                     <button className="btn-google">
                         <i className="fa fa-google-plus"/>&nbsp;&nbsp;Sign in with Google
                     </button>
+                    <button className="btn-github">
+                        <i className="fa fa-github"/>&nbsp;&nbsp;Sign in with GitHub
+                    </button>
                 </div>
             </div>
         </div>

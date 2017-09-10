@@ -18,7 +18,7 @@ class NavBar extends Component {
                             <a className="link" href="/"><i className="fa fa-home"/> Home <span className="sr-only">(current)</span></a>
                         </div>
                         <div className="navlink">
-                            <a className="link" href="/"><i className="fa fa-pie-chart"/> Polls <span className="sr-only">(current)</span></a>
+                            <a className="link" href="/polls"><i className="fa fa-pie-chart"/> Polls <span className="sr-only">(current)</span></a>
                         </div>
                     </div>
                     <div className="navright">

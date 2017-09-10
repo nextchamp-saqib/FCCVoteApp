@@ -1,0 +1,70 @@
+.polls-container{
+    margin-top: 50px;
+}
+.polls-container h3{
+    font-size: 32px;
+    margin-left: 10%; 
+    text-align: left;
+}
+
+.polls{
+    width: 80%;
+    border-top: 1px solid rgba(0,0,0,0.3);
+    margin: 0 auto;
+    padding: 10px 5px;
+
+}
+.polls .poll{
+    border: 1px solid rgba(0,0,0,0.3);
+    display: inline-block;
+    width: 48%;
+    margin: 5 1%;
+    padding: 10px;
+    color: black;
+}
+.poll-topic{
+    font-size: 20px;
+    font-weight: bold;
+}
+.poll-author{
+    font-size: 10px;
+}
+.view-poll{
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 3px;
+}
+.view-poll a{
+    
+    background-color: rgba(218, 27, 27, 0.80);
+    padding: 5px;
+    font-size: 11px;
+    color: white !important;
+    border: 1px solid rgba(0,0,0,0.3);
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+}
+.view-poll a:hover{
+    border: 1px solid rgba(0,0,0,0.5);
+    background-color: rgba(218, 27, 27, 0.90);
+}
+.view-poll a:focus{
+    outline: none;
+    border: 1px solid rgba(0,0,0,0.5);
+    background-color: rgba(218, 27, 27, 0.90);
+}
+
+@media (max-width: 580px){
+    .polls-container h3{
+        text-align: center;
+    }
+    .polls{
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+    }
+    .polls .poll{
+        width: 100%;
+        margin: 5 0;
+    }
+}

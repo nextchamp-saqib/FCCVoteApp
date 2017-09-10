@@ -1,0 +1,119 @@
+.viewpoll .poll{
+    width: 80%;
+    margin: 50px 10% 0 10%;
+    margin-bottom: 0;
+    padding: 10px;
+    color: black;
+    border: none;
+}
+.viewpoll .poll-topic{
+    font-size: 25px;
+    font-weight: bold;
+}
+.viewpoll .poll-author{
+    font-size: 13px;
+}
+
+.share-poll{
+    display: inline-block;
+    margin-top: 10px;
+}
+.share-poll a{
+    background-color: rgba(59, 89, 152, 0.90);
+    padding: 5px;
+    
+    font-size: 11px;
+    color: white;
+    border: 1px solid rgba(0,0,0,0.3);
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+}
+a:hover{
+    text-decoration: none;
+    border: 1px solid rgba(0,0,0,0.5);
+    background-color: rgba(59, 89, 152, 1);
+}
+a:focus{
+    outline: none;
+    border: 1px solid rgba(0,0,0,0.5);
+    background-color: rgba(59, 89, 152, 1);
+}
+
+.poll-info{
+    border-top: 1px solid rgba(0,0,0,0.3);
+    width: 80%;
+    display: flex;
+    margin: 0 auto; 
+    text-align: center;
+    padding: 10px;
+    display: flex;
+}
+.poll-vote{
+    padding: 10px;  
+    width: 50%;
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+
+.list-group{
+    padding: 10px 25px;
+}
+.list-group-item{
+    flex-grow: 1;
+    border: none;
+    padding: 0px;    
+}
+.input-group-addon{
+    border-radius: 0;
+}
+.option{
+    background: none;
+    font-size: 10px !important;
+    width: 100%;
+}
+.btn-vote{
+    width: 49px;
+    margin-left: 25px; 
+    background-color: rgba(218, 27, 27, 0.9);
+    padding: 5px;
+    font-size: 11px;
+    color: white;
+    border: 1px solid rgba(0,0,0,0.3);
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+}
+.btn-vote:hover{
+    border: 1px solid rgba(0,0,0,0.5);
+    background-color: rgba(218, 27, 27, 1);
+}
+.btn-vote:focus{
+    outline: none;
+    border: 1px solid rgba(0,0,0,0.5);
+    background-color: rgba(218, 27, 27, 1);
+}
+.poll-result{
+    padding: 10px;
+    width: 50%;
+    border-left: 1px solid rgba(0,0,0,0.1);
+}
+
+@media (max-width: 580px){
+    .viewpoll .poll{
+        width: 95%;
+        margin: 50px 0 0 3%;
+        text-align: center;
+    }
+    .poll-info{
+        width: 95%;
+        flex-direction: column;
+    }
+    .poll-vote{
+        border: none;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        width: 100%;
+    }
+    .poll-result{
+        border: none;
+        border-top: 1px solid rgba(0,0,0,0.1);
+        width: 100%;
+    }
+}

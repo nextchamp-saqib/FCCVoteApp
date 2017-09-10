@@ -12,6 +12,8 @@ var Home = require('../public/Components/home');
 var Login = require('../public/Components/login');
 var Signup = require('../public/Components/signup');
 var Profile = require('../public/Components/profile');
+var Polls = require('../public/Components/polls');
+var ViewPoll = require('../public/Components/viewpoll');
 
 if (typeof window === 'object') {
     function createElement(Component, props) {
@@ -26,6 +28,8 @@ var routes = (
             <Route path="login" component={Login}/>
             <Route path="signup" component={Signup}/>
             <Route path="profile" component={Profile}/>
+            <Route path="polls" component={Polls}/>
+            <Route path="polls/view/*" component={ViewPoll}/>
         </Route>
     </Router>
 );

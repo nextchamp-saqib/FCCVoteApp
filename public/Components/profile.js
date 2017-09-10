@@ -34,10 +34,16 @@ class Profile extends Component {
                     <h5>Polls</h5>
                     <div className="polls-list">
                         <div className="poll">
-                            Who is your Favorite?
+                            <div className="poll-topic">Vote Topic</div>
+                            <div className="poll-author">By: Someone</div>
+                            <div className="view-poll"><a href="/polls/view/5"><i className="fa fa-list-alt"/> &nbsp;View</a></div>
+                            <div className="share-poll"><a href="/polls/view/5"><i className="fa fa-facebook"/> &nbsp;Share</a></div>
                         </div>
                         <div className="poll">
-                            Who is your Favorite?
+                            <div className="poll-topic">Vote Topic</div>
+                            <div className="poll-author">By: Someone</div>
+                            <div className="view-poll"><a href="/polls/view/5"><i className="fa fa-list-alt"/> &nbsp;View</a></div>
+                            <div className="share-poll"><a href="/polls/view/5"><i className="fa fa-facebook"/> &nbsp;Share</a></div>
                         </div>
                     </div>
                 </div>

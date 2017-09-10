@@ -2,8 +2,8 @@
     background-color: #1A237E;
     width: 100%;
     border-radius: 0;
-    box-shadow: 0px 1px 5px rgba(0,0,0,.26);
-    font-size: 13px;
+    box-shadow: 0px 1px 5px rgba(0,0,0,.36);
+    font-size: 12px;
     padding: 2px;
     padding-left: 15px;
 }
@@ -17,7 +17,7 @@
 }
 .navlink{
     margin: 8px;
-    height: 22px;
+    height: 20px;
 }
 
 .link{
@@ -25,6 +25,7 @@
 }
 .link:hover{
     color: white;
+    background: none;
     text-decoration: none;
 }
 

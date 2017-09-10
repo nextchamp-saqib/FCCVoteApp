@@ -1,19 +1,21 @@
 .signup-form{
     margin-top: 50px;
+    font-size: 11px;
 }
 
 .signup-form h3{
-    font-size: 35px;
-    text-align: center;
+    font-size: 32px;
+    margin-left: 10%;
+    text-align: left;
 }
 .signup-form .form{
     box-shadow: 0px 1px 5px rgba(0,0,0,.16);
     display: flex;
     flex-direction: column;
-    border: 1px solid rgba(0,0,0,0.5);
+    border: 1px solid rgba(0,0,0,0.3);
     padding: 15px;
     margin: 0 auto;
-    width: 60%;
+    width: 80%;
 }
 .signup-form .flex{
     display: flex;
@@ -24,7 +26,6 @@
     justify-content: flex-end;
 }
 .signup-form .flex div{
-    font-size: 13px;
     width: 70%;
     flex-grow: 1;
 }
@@ -51,6 +52,10 @@
     background-color: rgba(0,0,0,0.05);
 }
 @media (max-width: 580px) {
+    .signup-form h3{
+        margin-left: 0;
+        text-align: center;
+    }
     .signup-form .form{
         width: 90%;
     }

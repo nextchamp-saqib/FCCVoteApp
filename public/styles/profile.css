@@ -2,14 +2,17 @@
     margin-top: 50px;
     /* border: 1px solid rgba(0,0,0,0.25); */
     text-align: center;
+    font-size: 11px;
 }
 .profile h3{
-    font-size: 35px;
+    font-size: 32px;
 }
 .profile h5{
+    font-size: 18px;
     width: 100%;
 }
 .profile-img{
+    font-size: 17px;
     width: 95px;
     height: 95px;
     margin: 5px auto 0 auto;
@@ -18,7 +21,7 @@
 }
 .user-info{
     border-top: 1px solid rgba(0,0,0,0.25);
-    width: 70%;
+    width: 80%;
     margin: 0px auto;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -36,12 +39,11 @@
     text-align: right;
 }
 .profile-info .flex div{
-    font-size: 13px;
     width: 58%;
     flex-grow: 1;
 }
 .profile-info .flex .label{
-    width: 30%;
+    width: 20%;
     padding: 0 10px;
 }
 .profile-info .flex input{
@@ -58,7 +60,7 @@
     padding: 0 3px;
     cursor: pointer;
     min-width: 79px;
-    margin-left: 83%;
+    margin-left: 87%;
 }
 .btn-update:focus{
     outline: none;
@@ -71,7 +73,7 @@
 
 .polls-info{
     border-top: 1px solid rgba(0,0,0,0.25);
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     padding: 15px;
     padding-left: 12%;
@@ -81,9 +83,13 @@
     padding: 5px;
 }
 .poll{
-    border: 1px solid rgba(0,0,0,0.25);
+    border: 1px solid rgba(0,0,0,0.3);
+    text-align: left;
+    display: inline-block;
     width: 100%;
-    margin: 5px auto;
+    margin: 5 0;
+    padding: 10px;
+    color: black;
 }
 
 @media (max-width: 580px) {
