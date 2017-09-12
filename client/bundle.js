@@ -12772,9 +12772,10 @@ var Layout = function (_Component) {
     _createClass(Layout, [{
         key: 'render',
         value: function render() {
+            var custom = this.props.custom;
             return _react2.default.createElement(
                 'html',
-                { lang: 'en' },
+                null,
                 _react2.default.createElement(
                     'head',
                     null,
@@ -12795,8 +12796,11 @@ var Layout = function (_Component) {
                 _react2.default.createElement(
                     'body',
                     null,
-                    _react2.default.createElement(NavBar, null),
+                    _react2.default.createElement(NavBar, { custom: custom }),
                     this.props.children,
+                    _react2.default.createElement('script', { dangerouslySetInnerHTML: {
+                            __html: 'window.PROPS=' + JSON.stringify(custom)
+                        } }),
                     _react2.default.createElement('script', { src: '/bundle.js' })
                 )
             );
@@ -12839,18 +12843,51 @@ var NavBar = function (_Component) {
     }
 
     _createClass(NavBar, [{
-        key: "renderUser",
-        value: function renderUser() {
-            return _react2.default.createElement(
-                "div",
-                { className: "nav-item" },
-                _react2.default.createElement(
-                    "a",
-                    { className: "nav-link", href: "/login" },
-                    _react2.default.createElement("i", { className: "fa fa-sign-in" }),
-                    " Log In"
-                )
-            );
+        key: "renderRight",
+        value: function renderRight() {
+            var propsString = this.props.custom;
+            var props = JSON.parse(propsString);
+            if (!props.userAuth) {
+                return _react2.default.createElement(
+                    "div",
+                    { className: "navright" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "navlink" },
+                        _react2.default.createElement(
+                            "a",
+                            { className: "link", href: "/login" },
+                            _react2.default.createElement("i", { className: "fa fa-sign-in" }),
+                            " Log In"
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "navlink" },
+                        _react2.default.createElement(
+                            "a",
+                            { className: "link", href: "/signup" },
+                            _react2.default.createElement("i", { className: "fa fa-user-plus" }),
+                            " Create Account"
+                        )
+                    )
+                );
+            } else {
+                return _react2.default.createElement(
+                    "div",
+                    { className: "navright" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "navlink" },
+                        _react2.default.createElement(
+                            "a",
+                            { className: "link", href: "/profile" },
+                            _react2.default.createElement("i", { className: "fa fa-user" }),
+                            " Profile"
+                        )
+                    )
+                );
+            }
         }
     }, {
         key: "render",
@@ -12896,40 +12933,7 @@ var NavBar = function (_Component) {
                             )
                         )
                     ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "navright" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "navlink" },
-                            _react2.default.createElement(
-                                "a",
-                                { className: "link", href: "/login" },
-                                _react2.default.createElement("i", { className: "fa fa-sign-in" }),
-                                " Log In"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "navlink" },
-                            _react2.default.createElement(
-                                "a",
-                                { className: "link", href: "/signup" },
-                                _react2.default.createElement("i", { className: "fa fa-user-plus" }),
-                                " Create Account"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "navlink" },
-                            _react2.default.createElement(
-                                "a",
-                                { className: "link", href: "/profile" },
-                                _react2.default.createElement("i", { className: "fa fa-user" }),
-                                " Profile"
-                            )
-                        )
-                    )
+                    this.renderRight()
                 )
             );
         }
@@ -25317,15 +25321,14 @@ var Profile = __webpack_require__(249);
 var Polls = __webpack_require__(250);
 var ViewPoll = __webpack_require__(251);
 
-if ((typeof window === 'undefined' ? 'undefined' : _typeof(window)) === 'object') {
-    var createElement = function createElement(Component, props) {
-        return React.createElement(Component, _extends({}, props, { custom: window.PROPS }));
-    };
+if ((typeof window === 'undefined' ? 'undefined' : _typeof(window)) == 'object') {}
+function createElement(Component, props) {
+    return React.createElement(Component, _extends({}, props, { custom: window.PROPS }));
 }
 
 var routes = React.createElement(
     Router,
-    { history: browserHistory },
+    { history: browserHistory, createElement: createElement },
     React.createElement(
         Route,
         { path: '/', component: Layout },
@@ -27877,7 +27880,7 @@ var Login = function (_Component) {
                         { className: "box" },
                         _react2.default.createElement(
                             "button",
-                            { className: "btn-google" },
+                            { className: "btn-google", href: "/auth/google" },
                             _react2.default.createElement("i", { className: "fa fa-google-plus" }),
                             "\xA0\xA0Sign in with Google"
                         ),

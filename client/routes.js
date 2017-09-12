@@ -15,14 +15,15 @@ var Profile = require('../public/Components/profile');
 var Polls = require('../public/Components/polls');
 var ViewPoll = require('../public/Components/viewpoll');
 
-if (typeof window === 'object') {
-    function createElement(Component, props) {
-        return <Component {...props} custom={window.PROPS} />;
-    }
+if (typeof window == 'object') {
+
+}
+function createElement(Component, props) {
+    return <Component {...props} custom={window.PROPS} />;
 }
 
 var routes = (
-    <Router history={browserHistory}>
+    <Router history={browserHistory} createElement={createElement}>
         <Route path='/' component={Layout}>
             <IndexRoute component={Home} />
             <Route path="login" component={Login}/>

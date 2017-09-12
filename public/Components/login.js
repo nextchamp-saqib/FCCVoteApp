@@ -20,7 +20,7 @@ class Login extends Component {
                     </div>
                 </div>
                 <div className="box">
-                    <button className="btn-google">
+                    <button className="btn-google" href="/auth/google">
                         <i className="fa fa-google-plus"/>&nbsp;&nbsp;Sign in with Google
                     </button>
                     <button className="btn-github">

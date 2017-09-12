@@ -3,8 +3,9 @@ var NavBar = require('../public/Components/nav');
 
 class Layout extends Component {
     render() {
+        var custom = this.props.custom;
         return (
-            <html lang="en">
+            <html>
                 <head>
                     <title>VoteApp</title>
                     <meta charSet="UTF-8" />
@@ -15,13 +16,13 @@ class Layout extends Component {
                     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossOrigin="anonymous"></script>
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
                     <link rel="stylesheet" href="/styles/main.css" />
-                    {/* <script dangerouslySetInnerHTML={{
-                        __html: 'window.PROPS=' + JSON.stringify(custom)
-                    }} /> */}
                 </head>
                 <body>
-                    <NavBar />
+                    <NavBar custom={custom}/>
                     {this.props.children}
+                    <script dangerouslySetInnerHTML={{
+                        __html: 'window.PROPS=' + JSON.stringify(custom)
+                    }} />
                     <script src="/bundle.js"></script>
                 </body>
             </html>

@@ -1,12 +1,29 @@
 import React, { Component } from 'react';
 
 class NavBar extends Component {
-    renderUser(){
-        return (
-            <div className="nav-item">
-                <a className="nav-link" href="/login"><i className="fa fa-sign-in"/> Log In</a>
-            </div>
-        );
+    renderRight(){
+        var propsString = this.props.custom;
+        var props = JSON.parse(propsString);
+        if(!props.userAuth){
+            return (
+                <div className="navright">
+                    <div className="navlink">
+                        <a className="link" href="/login"><i className="fa fa-sign-in"/> Log In</a>
+                    </div>
+                    <div className="navlink">
+                        <a className="link" href="/signup"><i className="fa fa-user-plus"/> Create Account</a>
+                    </div>
+                </div>
+            );
+        }else {
+            return (
+                <div className="navright">
+                    <div className="navlink">
+                        <a className="link" href="/profile"><i className="fa fa-user"/> Profile</a>
+                    </div>
+                </div>
+            );
+        }
     }
     render() {
         return (
@@ -21,17 +38,7 @@ class NavBar extends Component {
                             <a className="link" href="/polls"><i className="fa fa-pie-chart"/> Polls <span className="sr-only">(current)</span></a>
                         </div>
                     </div>
-                    <div className="navright">
-                        <div className="navlink">
-                            <a className="link" href="/login"><i className="fa fa-sign-in"/> Log In</a>
-                        </div>
-                        <div className="navlink">
-                            <a className="link" href="/signup"><i className="fa fa-user-plus"/> Create Account</a>
-                        </div>
-                        <div className="navlink">
-                            <a className="link" href="/profile"><i className="fa fa-user"/> Profile</a>
-                        </div>
-                    </div>
+                    {this.renderRight()}
                     </div>
             </div>
         );
