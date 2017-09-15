@@ -3,6 +3,7 @@ const bodyparser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
 const expressSession = require('express-session');
+require('dotenv').config();
 
 //db connecttion
 var mongoose = require('mongoose');
@@ -44,6 +45,6 @@ app.use(express.static('public'));
 app.use(routes);
 
 
-app.listen(8080,() => {
+app.listen(process.env.PORT,() => {
     console.log('Server listening at 8080');
 })
