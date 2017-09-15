@@ -4,7 +4,7 @@
 
 ___
 #### After installation:
-Change to the cloned directiory and open terminal and run.
+Change to the cloned directory and open terminal and run.
 >__npm install__
 
 #### To start server:
