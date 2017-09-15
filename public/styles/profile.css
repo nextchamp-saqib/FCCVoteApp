@@ -56,11 +56,11 @@
     border: 0.3mm solid rgba(0,0,0,0.26);
     color: white;
     font-family: 'Open Sans', sans-serif;
-    background-color: rgba(218, 27, 27, 0.70);
-    padding: 0 3px;
+    background-color: rgba(218, 27, 27, 0.80);
+    padding: 3px;
     cursor: pointer;
     min-width: 79px;
-    margin-left: 87%;
+    margin-left: 31%;
 }
 .btn-update:focus{
     outline: none;

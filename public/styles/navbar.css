@@ -24,6 +24,7 @@
     color: rgba(255, 255, 255,0.8);
 }
 .link:hover{
+    border: none;
     color: white;
     background: none;
     text-decoration: none;

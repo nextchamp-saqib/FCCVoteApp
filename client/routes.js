@@ -14,6 +14,7 @@ var Signup = require('../public/Components/signup');
 var Profile = require('../public/Components/profile');
 var Polls = require('../public/Components/polls');
 var ViewPoll = require('../public/Components/viewpoll');
+var NewPoll = require('../public/Components/newpoll');
 
 if (typeof window == 'object') {
 
@@ -31,6 +32,7 @@ var routes = (
             <Route path="profile" component={Profile}/>
             <Route path="polls" component={Polls}/>
             <Route path="polls/view/*" component={ViewPoll}/>
+            <Route path="newpoll" component={NewPoll}/>
         </Route>
     </Router>
 );

@@ -14,6 +14,8 @@
 @import url('./polls.css');
 /* ViewPoll */
 @import url('./viewpoll.css');
+/* NewPoll */
+@import url('./newpoll.css');
 
 body{
     background-color: white;

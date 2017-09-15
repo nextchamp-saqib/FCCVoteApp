@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 class Signup extends Component {
+    handleSignup() {
+        //make post req to create user
+    }
     render() {
         return (
             <div className="signup-form">
@@ -27,7 +30,9 @@ class Signup extends Component {
                         <div><input id="pass-confirm" type="password" /></div>
                     </div>
                     <div className="flex">
-                        <button className="btn-signup"><i className=" fa fa-2x fa-arrow-circle-right"/></button>
+                        <a className="btn-signup" onClick={this.handleSignup}>
+                            <i className=" fa fa-2x fa-arrow-circle-right"/>
+                        </a>
                     </div>
                 </div>
             </div>

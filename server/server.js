@@ -29,12 +29,12 @@ app.use(expressSession({
      secret: 'asfdgafgreadsvb', resave: false, saveUninitialized: true,
      store: new (require('express-sessions'))({
         storage: 'mongodb',
-        instance: mongoose, // optional 
-        host: 'localhost', // optional 
-        port: 27017, // optional 
-        db: 'voteapp', // optional 
-        collection: 'sessions', // optional 
-        expire: 86400 // optional 
+        instance: mongoose, 
+        host: 'localhost', 
+        port: 27017,
+        db: 'voteapp',
+        collection: 'sessions',
+        expire: 86400
     })
 }));
 app.use(passport.initialize());
@@ -42,6 +42,7 @@ app.use(passport.session());
 app.use(express.static('client'));
 app.use(express.static('public'));
 app.use(routes);
+
 
 app.listen(8080,() => {
     console.log('Server listening at 8080');

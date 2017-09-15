@@ -1,0 +1,78 @@
+.newpoll{
+    width: 80%;
+    margin: 50px 10% 0 10%;
+    margin-bottom: 0;
+    padding: 10px;
+    color: black;
+    border: none;
+}
+.new-poll-info{
+    border-top: 1px solid rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.new-poll-info .flex{
+    display: flex;
+    padding: 5px;
+    width: 100%;
+    flex-wrap: wrap;
+    text-align: right;
+    justify-content: flex-end;
+}
+.new-poll-info .flex div{
+    width: 70%;
+    flex-grow: 1;
+}
+.new-poll-info .flex .label{
+    width: 30%;
+    padding: 0 10px;
+}
+.new-poll-info .flex input{
+    width: 100%;
+    outline-color : rgba(0,0,0,0.16);
+    outline-width: 0.5mm;
+}
+.option-border{
+    font-size: 20px;
+    justify-content: flex-start !important;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    margin-bottom: 5px; 
+}
+
+.new-poll-info .btn-create{
+    background-color: rgba(218, 27, 27, 0.9);
+    border: 0.3mm solid rgba(0,0,0,0.26);
+    width: 70px; 
+    padding: 4px;
+    text-align: center;
+    font-size: 13px;
+    color: white;
+    border: 1px solid rgba(0,0,0,0.3);
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+}
+.btn-create:hover{
+    border: 1px solid rgba(0,0,0,0.5);
+    background-color: rgba(218, 27, 27, 1);
+}
+.btn-create:focus{
+    outline: none;
+    border: 1px solid rgba(0,0,0,0.5);
+    background-color: rgba(218, 27, 27, 1);
+}
+
+@media (max-width: 580px) {
+    .newpoll h3{
+        text-align: center;
+    }
+    .new-poll-info{
+        width: 100%;
+    }
+    .new-poll-info .flex{
+        text-align: left !important;
+    }
+    .new-poll-info .flex .label{
+        width: 200px;
+    }   
+}

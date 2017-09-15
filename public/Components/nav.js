@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 
 class NavBar extends Component {
     renderRight(){
-        var propsString = this.props.custom;
-        var props = JSON.parse(propsString);
+        var props = JSON.parse(this.props.custom);
         if(!props.userAuth){
             return (
                 <div className="navright">
