@@ -2,7 +2,8 @@ const express = require('express');
 const bodyparser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
-const expressSession = require('express-session');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 require('dotenv').config();
 
 //db connecttion
@@ -26,17 +27,9 @@ const routes = require('./routes');
 app.use(cors());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false}));
-app.use(expressSession({
-     secret: 'asfdgafgreadsvb', resave: false, saveUninitialized: true,
-     store: new (require('express-sessions'))({
-        storage: 'mongodb',
-        instance: mongoose, 
-        host: 'localhost', 
-        port: 27017,
-        db: 'voteapp',
-        collection: 'sessions',
-        expire: 86400
-    })
+app.use(session({
+     secret: 'asfdgafgreadsvb', resave: false, saveUninitialized: false,
+     store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 app.use(passport.initialize());
 app.use(passport.session());

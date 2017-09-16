@@ -13300,6 +13300,16 @@ var NavBar = function (_Component) {
                             _react2.default.createElement("i", { className: "fa fa-user" }),
                             " Profile"
                         )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "navlink" },
+                        _react2.default.createElement(
+                            "a",
+                            { className: "link", href: "/signout" },
+                            _react2.default.createElement("i", { className: "fa fa-sign-out" }),
+                            " Log Out"
+                        )
                     )
                 );
             }
@@ -28738,6 +28748,10 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _axios = __webpack_require__(72);
+
+var _axios2 = _interopRequireDefault(_axios);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28749,178 +28763,172 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Profile = function (_Component) {
     _inherits(Profile, _Component);
 
-    function Profile() {
+    function Profile(props) {
         _classCallCheck(this, Profile);
 
-        return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
+
+        _this.state = {
+            userID: JSON.parse(props.custom).user._id,
+            name: JSON.parse(props.custom).user.name,
+            polls: []
+        };
+        return _this;
     }
 
     _createClass(Profile, [{
-        key: "render",
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var self = this;
+            (0, _axios2.default)({
+                method: 'get',
+                url: 'http://localhost:8080/getuserpolls/' + self.state.userID
+            }).then(function (response) {
+                self.setState({
+                    polls: response.data
+                });
+            }).catch(function (err) {
+                console.log(err);
+            });
+        }
+    }, {
+        key: 'mapPolls',
+        value: function mapPolls(poll, id) {
+            var href = "/polls/view/" + poll._id;
+            return _react2.default.createElement(
+                'div',
+                { key: id, className: 'poll' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'poll-topic' },
+                    poll.title
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'poll-author' },
+                    poll.userID
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'view-poll' },
+                    _react2.default.createElement(
+                        'a',
+                        { href: href },
+                        _react2.default.createElement('i', { className: 'fa fa-list-alt' }),
+                        ' \xA0View'
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'share-poll' },
+                    _react2.default.createElement(
+                        'a',
+                        { href: href },
+                        _react2.default.createElement('i', { className: 'fa fa-facebook' }),
+                        ' \xA0Share'
+                    )
+                )
+            );
+        }
+    }, {
+        key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                "div",
-                { className: "profile" },
+                'div',
+                { className: 'profile' },
                 _react2.default.createElement(
-                    "h3",
+                    'h3',
                     null,
-                    "Profile"
+                    'Profile'
                 ),
                 _react2.default.createElement(
-                    "div",
-                    { className: "profile-img" },
-                    _react2.default.createElement("i", { className: "fa fa-5x fa-user" })
+                    'div',
+                    { className: 'profile-img' },
+                    _react2.default.createElement('i', { className: 'fa fa-5x fa-user' })
                 ),
                 _react2.default.createElement(
-                    "div",
-                    { className: "profile-name" },
-                    "/u/user"
+                    'div',
+                    { className: 'profile-name' },
+                    '/u/user'
                 ),
                 _react2.default.createElement(
-                    "div",
-                    { className: "user-info" },
+                    'div',
+                    { className: 'user-info' },
                     _react2.default.createElement(
-                        "h5",
+                        'h5',
                         null,
-                        "Information"
+                        'Information'
                     ),
                     _react2.default.createElement(
-                        "div",
-                        { className: "profile-info" },
+                        'div',
+                        { className: 'profile-info' },
                         _react2.default.createElement(
-                            "div",
-                            { className: "flex" },
+                            'div',
+                            { className: 'flex' },
                             _react2.default.createElement(
-                                "div",
-                                { className: "label" },
-                                "Name:"
+                                'div',
+                                { className: 'label' },
+                                'Name:'
                             ),
                             _react2.default.createElement(
-                                "div",
+                                'div',
                                 null,
-                                _react2.default.createElement("input", { id: "name", type: "text" })
+                                _react2.default.createElement('input', { id: 'name', type: 'text' })
                             )
                         ),
                         _react2.default.createElement(
-                            "div",
-                            { className: "flex" },
+                            'div',
+                            { className: 'flex' },
                             _react2.default.createElement(
-                                "div",
-                                { className: "label" },
-                                "Contact:"
+                                'div',
+                                { className: 'label' },
+                                'Contact:'
                             ),
                             _react2.default.createElement(
-                                "div",
+                                'div',
                                 null,
-                                _react2.default.createElement("input", { id: "contact", type: "text" })
+                                _react2.default.createElement('input', { id: 'contact', type: 'text' })
                             )
                         ),
                         _react2.default.createElement(
-                            "div",
-                            { className: "flex" },
+                            'div',
+                            { className: 'flex' },
                             _react2.default.createElement(
-                                "div",
-                                { className: "label" },
-                                "Place:"
+                                'div',
+                                { className: 'label' },
+                                'Place:'
                             ),
                             _react2.default.createElement(
-                                "div",
+                                'div',
                                 null,
-                                _react2.default.createElement("input", { id: "place", type: "text" })
+                                _react2.default.createElement('input', { id: 'place', type: 'text' })
                             )
                         ),
                         _react2.default.createElement(
-                            "div",
-                            { className: "flex" },
+                            'div',
+                            { className: 'flex' },
                             _react2.default.createElement(
-                                "button",
-                                { className: "btn-update" },
-                                _react2.default.createElement("i", { className: " fa fa-pencil-square-o" }),
-                                "Update"
+                                'button',
+                                { className: 'btn-update' },
+                                _react2.default.createElement('i', { className: ' fa fa-pencil-square-o' }),
+                                'Update'
                             )
                         )
                     )
                 ),
-                _react2.default.createElement("div", null),
+                _react2.default.createElement('div', null),
                 _react2.default.createElement(
-                    "div",
-                    { className: "polls-info" },
+                    'div',
+                    { className: 'polls-info' },
                     _react2.default.createElement(
-                        "h5",
+                        'h5',
                         null,
-                        "Polls"
+                        'Polls'
                     ),
                     _react2.default.createElement(
-                        "div",
-                        { className: "polls-list" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "poll" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "poll-topic" },
-                                "Vote Topic"
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "poll-author" },
-                                "By: Someone"
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "view-poll" },
-                                _react2.default.createElement(
-                                    "a",
-                                    { href: "/polls/view/5" },
-                                    _react2.default.createElement("i", { className: "fa fa-list-alt" }),
-                                    " \xA0View"
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "share-poll" },
-                                _react2.default.createElement(
-                                    "a",
-                                    { href: "/polls/view/5" },
-                                    _react2.default.createElement("i", { className: "fa fa-facebook" }),
-                                    " \xA0Share"
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "poll" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "poll-topic" },
-                                "Vote Topic"
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "poll-author" },
-                                "By: Someone"
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "view-poll" },
-                                _react2.default.createElement(
-                                    "a",
-                                    { href: "/polls/view/5" },
-                                    _react2.default.createElement("i", { className: "fa fa-list-alt" }),
-                                    " \xA0View"
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "share-poll" },
-                                _react2.default.createElement(
-                                    "a",
-                                    { href: "/polls/view/5" },
-                                    _react2.default.createElement("i", { className: "fa fa-facebook" }),
-                                    " \xA0Share"
-                                )
-                            )
-                        )
+                        'div',
+                        { className: 'polls-list' },
+                        this.state.polls.map(this.mapPolls)
                     )
                 )
             );
@@ -29022,11 +29030,6 @@ var Polls = function (_Component) {
                     )
                 )
             );
-        }
-    }, {
-        key: 'componentDidUpdate',
-        value: function componentDidUpdate() {
-            console.log(this.state.polls);
         }
     }, {
         key: 'renderCreateButton',
@@ -29973,7 +29976,7 @@ var ViewPoll = function (_Component) {
 
         var pollId = _this.props.params.splat;
         _this.state = {
-            userID: JSON.parse(_this.props.custom).userID,
+            userID: JSON.parse(_this.props.custom).user._id,
             pollId: _this.props.params.splat,
             poll: {
                 userID: '',
@@ -30163,7 +30166,7 @@ var NewPoll = function (_Component) {
         value: function handleCreate(e) {
             if (JSON.parse(this.props.custom).userAuth) {
                 var data = {
-                    userID: JSON.parse(this.props.custom).userID,
+                    userID: JSON.parse(this.props.custom).user._id,
                     title: this.refs.title.value,
                     options: [{
                         option: this.refs.op1.value,

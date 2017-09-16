@@ -9,7 +9,7 @@ class NewPoll extends Component {
     handleCreate(e){
         if(JSON.parse(this.props.custom).userAuth){
             const data = {
-                userID: JSON.parse(this.props.custom).userID,
+                userID: JSON.parse(this.props.custom).user._id,
                 title : this.refs.title.value,
                 options: [{
                     option: this.refs.op1.value,

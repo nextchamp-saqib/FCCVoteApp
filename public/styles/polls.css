@@ -39,7 +39,7 @@
     display: inline-block;
     width: 48%;
     margin: 5 1%;
-    padding: 10px;
+    padding: 20px;
     color: black;
 }
 .poll-topic{
@@ -48,6 +48,7 @@
 }
 .poll-author{
     font-size: 10px;
+    margin-bottom: 10px; 
 }
 .view-poll{
     display: inline-block;

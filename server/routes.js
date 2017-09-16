@@ -25,15 +25,21 @@ router.get('/auth/google/callback', passport.authenticate('google', {
 
 router.get('/signout', function(req, res) {
     var id = req.sessionID;
+    req.logout();
     req.session.destroy();
-    res.send(JSON.stringify(id));
+    res.redirect('/');
 });
 
 router.get('/getpolls', function(req, res) {
     Poll.find({}, function(err, data) {
-        console.log(data);
         if(data) res.send(data);
         else throw err
+    })
+})
+
+router.get('/getuserpolls/:id', function(req, res) {
+    Poll.find({userID: req.params.id}, function(err, data) {
+        res.send(data);
     })
 })
 
@@ -74,7 +80,7 @@ router.get('*', function(request, response) {
     var userAuth = request.isAuthenticated();
     var props = { 
         userAuth: userAuth,
-        userID: (userAuth) ? request.session.passport.user : undefined
+        user: (userAuth) ? request.session.passport.user : undefined
      };
 
     ReactRouter.match({

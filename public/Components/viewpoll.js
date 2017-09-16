@@ -6,7 +6,7 @@ class ViewPoll extends Component {
         super(props);
         var pollId = this.props.params.splat;
         this.state = {
-            userID: JSON.parse(this.props.custom).userID,
+            userID: JSON.parse(this.props.custom).user._id,
             pollId: this.props.params.splat,
             poll: {
                 userID: '',

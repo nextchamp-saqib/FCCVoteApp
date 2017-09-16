@@ -20,6 +20,7 @@ class Polls extends Component {
             })
         })
     }
+    
     mapPolls(poll, id) {
         var href = "/polls/view/"+poll._id;
         return(
@@ -31,9 +32,7 @@ class Polls extends Component {
             </div>
         )
     }
-    componentDidUpdate(){
-        console.log(this.state.polls);
-    }
+
     renderCreateButton() {
         if(JSON.parse(this.props.custom).userAuth){
             return (

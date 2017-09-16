@@ -20,6 +20,9 @@ class NavBar extends Component {
                     <div className="navlink">
                         <a className="link" href="/profile"><i className="fa fa-user"/> Profile</a>
                     </div>
+                    <div className="navlink">
+                        <a className="link" href="/signout"><i className="fa fa-sign-out"/> Log Out</a>
+                    </div>
                 </div>
             );
         }
@@ -38,7 +41,7 @@ class NavBar extends Component {
                         </div>
                     </div>
                     {this.renderRight()}
-                    </div>
+                </div>
             </div>
         );
     }
