@@ -41,9 +41,9 @@ a:focus{
 
 .poll-info{
     border-top: 1px solid rgba(0,0,0,0.3);
-    width: 80%;
+    width: 90%;
     display: flex;
-    margin: 0 auto; 
+    margin: 0 auto 10% auto; 
     text-align: center;
     padding: 10px;
     display: flex;

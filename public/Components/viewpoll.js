@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Chart} from 'chart.js';
 
 class ViewPoll extends Component {
     constructor(props) {
@@ -57,6 +58,41 @@ class ViewPoll extends Component {
              console.log(err);
          });
     }
+
+    componentDidUpdate() {
+        var self = this;
+        var options = [],
+            votes = [];        
+        self.state.poll.options.map(function (item, id) {
+            options.push(item.option);
+            votes.push(item.voters.length);
+        })
+        var ctx = $("#result");
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: options,
+                datasets: [{
+                    label: '# of Votes',
+                    data: votes,
+                    backgroundColor: [
+                        'rgba(255, 88, 88, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 76, 1)',
+                        'rgba(75, 215, 88, 1)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 88, 88, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 76, 1)',
+                        'rgba(75, 215, 88, 1)'
+                    ],
+                    borderWidth: 1,
+                    hoverBorderWidth: 3
+                }]
+            }
+        });
+    }
     
     render() {
         var self = this;
@@ -87,7 +123,10 @@ class ViewPoll extends Component {
                         </ul>
                         <div className="btn-vote" onClick={self.handleVote.bind(self)}><i className="fa fa-check"/>&nbsp;Vote</div>
                     </div>
-                    <div className="poll-result"><h4>Result</h4></div>
+                    <div className="poll-result">
+                        <h4>Result</h4>
+                        <canvas id="result" height="180px"/>
+                    </div>
                 </div>
             </div>
         );
