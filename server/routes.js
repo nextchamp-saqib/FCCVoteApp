@@ -9,10 +9,43 @@ var renderToString = ReactDOMServer.renderToString;
 
 var passport = require('passport');
 require('./OAuth/googleStrategy');
+require('./OAuth/localStrategy');
+
+passport.serializeUser(function(user, done) {
+    done(null, user);
+});
+  
+passport.deserializeUser(function(user, done) {
+    done(null,user);
+});
 
 //db models
 var mongoose = require('mongoose');
 var Poll = require('./db/Poll');
+var LocalUser  = require('./db/LocalUser');
+
+
+router.post('/signup/user', function(req, res) {
+    LocalUser.findOne({email: req.body.email }, function(err, user) {
+       if(user) res.status(500).send('Already exist');
+       else{
+            var newUser = new LocalUser({
+                name: req.body.fname +" "+ req.body.lname,
+                email: req.body.email,
+                password: req.body.passSignup
+            })
+            newUser.save(function(data){
+                res.status(200).send('OK');
+            });
+        }
+    });
+
+})
+
+router.post('/login/user', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+}));
 
 router.get('/auth/google',passport.authenticate('google', { 
     scope: ['profile']

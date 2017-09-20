@@ -19,16 +19,9 @@ passport.use(new GoogleStrategy({
             name: profile.displayName
         })
         user.save(function(err,user){
-            return done(err, user.id);
+            return done(err, user);
         })
    });
  }
 ));
 
-passport.serializeUser(function(user, done) {
-    done(null, user);
-});
-  
-passport.deserializeUser(function(user, done) {
-    done(null,user);
-});

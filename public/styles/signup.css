@@ -41,10 +41,13 @@
 
 .signup-form .btn-signup{
     border: 0.3mm solid rgba(0,0,0,0.26);
-    width: 43px; 
+    /* width: 43px;  */
+    text-align: center;
     background: none;
-    padding: 0 3px;
+    padding: 2px 5px;
     cursor: pointer;
+    background-color: rgba(218, 27, 27, 0.9);
+    color: white !important;
 }
 .btn-signup:focus{
     outline: none;

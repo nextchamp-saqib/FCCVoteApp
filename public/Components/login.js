@@ -1,6 +1,25 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Login extends Component {
+    handleLogin(e) {
+        var data = {
+            email: this.refs.email.value,
+            password: this.refs.passLogin.value
+        }
+        axios({
+            method: 'post',
+            url: '/login/user',
+            data: {
+                email: 'asdf1234@gmail.com',
+                password: 'asdf1234'
+            }
+        }).then(function(response){
+            if(response.status == 200){
+                window.location.href = "http://localhost:8080/";
+            }
+        })
+    }
     render() {
         return (
         <div className="login-form">
@@ -9,23 +28,25 @@ class Login extends Component {
                 <div className="box">
                     <div className="flex">
                         <div className="label">E-Mail ID:</div>
-                        <div><input id="email" type="text" /></div>
+                        <div><input ref="email" type="text" /></div>
                     </div>
                     <div className="flex">
                         <div className="label">Password:</div>
-                        <div><input id="pass-login" type="text" /></div>
+                        <div><input ref="passLogin" type="text" /></div>
                     </div>
                     <div className="flex">
-                        <button className="btn-login"><i className=" fa fa-2x fa-arrow-circle-right"/></button>
+                        <button className="btn-login" onClick={this.handleLogin.bind(this)}>
+                            <i className=" fa fa-2x fa-arrow-circle-right"/>
+                        </button>
                     </div>
                 </div>
                 <div className="box">
-                    <button className="btn-google" href="/auth/google">
+                    <a className="btn-google" href="/auth/google">
                         <i className="fa fa-google-plus"/>&nbsp;&nbsp;Sign in with Google
-                    </button>
-                    <button className="btn-github">
+                    </a>
+                    <a className="btn-github">
                         <i className="fa fa-github"/>&nbsp;&nbsp;Sign in with GitHub
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

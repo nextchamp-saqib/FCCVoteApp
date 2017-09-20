@@ -11,7 +11,7 @@ class Profile extends Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         var self = this;
         axios({
             method: 'get',
