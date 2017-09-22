@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack -w & nodemon server/server.js"
+    "build": "webpack -w & nodemon server/server.js",
+    "start": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
