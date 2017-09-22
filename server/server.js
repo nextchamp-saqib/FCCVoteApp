@@ -10,7 +10,8 @@ require('dotenv').config();
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost:27017/voteapp',{
+var url = "mongodb://thefalconx33:falconx33@freedb-shard-00-00-m2zez.mongodb.net:27017,freedb-shard-00-01-m2zez.mongodb.net:27017,freedb-shard-00-02-m2zez.mongodb.net:27017/voteapp?ssl=true&replicaSet=FreeDB-shard-0&authSource=admin";
+mongoose.connect(url,{
     useMongoClient: true
 });
 
@@ -38,6 +39,6 @@ app.use(express.static('public'));
 app.use(routes);
 
 
-app.listen(process.env.PORT,() => {
+app.listen(process.env.PORT || 8080,() => {
     console.log('Server listening at 8080');
 })
