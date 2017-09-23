@@ -47243,18 +47243,24 @@ var ViewPoll = function (_Component) {
 
         var pollId = _this.props.params.splat;
         if (JSON.parse(_this.props.custom).userAuth) _this.state = {
-            userID: JSON.parse(_this.props.custom).user._id
-        };else _this.state = {
-            userID: JSON.parse(_this.props.custom).user
-        };
-        _this.state = {
+            userID: JSON.parse(_this.props.custom).user._id,
             pollId: _this.props.params.splat,
             poll: {
                 userID: '',
                 title: '',
                 options: []
             }
-        };
+        };else {
+            _this.state = {
+                userID: JSON.parse(_this.props.custom).user,
+                pollId: _this.props.params.splat,
+                poll: {
+                    userID: '',
+                    title: '',
+                    options: []
+                }
+            };
+        }
         return _this;
     }
 
@@ -47349,6 +47355,11 @@ var ViewPoll = function (_Component) {
                         'div',
                         { className: 'poll-author' },
                         poll.userID
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'poll-author' },
+                        this.state.userID
                     ),
                     _react2.default.createElement(
                         'div',

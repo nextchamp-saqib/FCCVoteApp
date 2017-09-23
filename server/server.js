@@ -28,7 +28,7 @@ app.use(cors());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false}));
 app.use(session({
-     secret: 'asfdgafgreadsvb', resave: false, saveUninitialized: false,
+     secret: 'asfdgafgreadsvb', resave: false, saveUninitialized: true,
      store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 app.use(passport.initialize());

@@ -9,17 +9,22 @@ class ViewPoll extends Component {
         if(JSON.parse(this.props.custom).userAuth)
             this.state = {
                 userID: JSON.parse(this.props.custom).user._id,
+                pollId: this.props.params.splat,
+                poll: {
+                    userID: '',
+                    title: '',
+                    options: []
+                }
             }
-        else 
+        else {
             this.state = {
-                userID: JSON.parse(this.props.custom).user
-            }
-        this.state = {
-            pollId: this.props.params.splat,
-            poll: {
-                userID: '',
-                title: '',
-                options: []
+                userID: JSON.parse(this.props.custom).user,
+                pollId: this.props.params.splat,
+                poll: {
+                    userID: '',
+                    title: '',
+                    options: []
+                }
             }
         }
     }
@@ -109,6 +114,7 @@ class ViewPoll extends Component {
                 <div className="poll">
                     <div className="poll-topic">{poll.title}</div>
                     <div className="poll-author">{poll.userID}</div>
+                    <div className="poll-author">{this.state.userID}</div>
                     <div className="share-poll"><a href="/polls/view/5"><i className="fa fa-facebook"/> &nbsp;Share</a></div>
                 </div>
                 <div className="poll-info">
