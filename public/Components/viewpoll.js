@@ -6,7 +6,6 @@ class ViewPoll extends Component {
     constructor(props) {
         super(props);
         var pollId = this.props.params.splat;
-        console.log(JSON.parse(props.custom).user);
         if(JSON.parse(this.props.custom).userAuth)
             this.state = {
                 userID: JSON.parse(this.props.custom).user._id,
@@ -67,7 +66,7 @@ class ViewPoll extends Component {
                     poll: response.data
                 })
             else{
-                console.log(response.data);//make changebutton
+                $('[data-toggle="popover"]').popover();
             }
          }).catch(function(err){
              console.log(err);
@@ -137,7 +136,12 @@ class ViewPoll extends Component {
                                 )
                             })}
                         </ul>
-                        <div className="btn-vote" onClick={self.handleVote.bind(self)}><i className="fa fa-check"/>&nbsp;Vote</div>
+                        <div className="btn-vote"
+                            data-container="body" data-toggle="popover" data-placement="bottom"
+                            data-content="You have voted already." data-animation="true"
+                            onClick={self.handleVote.bind(self)}>
+                             <i className="fa fa-check"/>&nbsp;Vote
+                        </div>
                     </div>
                     <div className="poll-result">
                         <h4>Result</h4>

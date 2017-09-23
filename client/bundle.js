@@ -47237,7 +47237,6 @@ var ViewPoll = function (_Component) {
         var _this = _possibleConstructorReturn(this, (ViewPoll.__proto__ || Object.getPrototypeOf(ViewPoll)).call(this, props));
 
         var pollId = _this.props.params.splat;
-        console.log(JSON.parse(props.custom).user);
         if (JSON.parse(_this.props.custom).userAuth) _this.state = {
             userID: JSON.parse(_this.props.custom).user._id,
             pollId: _this.props.params.splat,
@@ -47301,7 +47300,7 @@ var ViewPoll = function (_Component) {
                 if (_typeof(response.data) == 'object') self.setState({
                     poll: response.data
                 });else {
-                    console.log(response.data); //make changebutton
+                    $('[data-toggle="popover"]').popover();
                 }
             }).catch(function (err) {
                 console.log(err);
@@ -47408,7 +47407,10 @@ var ViewPoll = function (_Component) {
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: 'btn-vote', onClick: self.handleVote.bind(self) },
+                            { className: 'btn-vote',
+                                'data-container': 'body', 'data-toggle': 'popover', 'data-placement': 'bottom',
+                                'data-content': 'You have voted already.', 'data-animation': 'true',
+                                onClick: self.handleVote.bind(self) },
                             _react2.default.createElement('i', { className: 'fa fa-check' }),
                             '\xA0Vote'
                         )

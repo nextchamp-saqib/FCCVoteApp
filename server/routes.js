@@ -108,9 +108,7 @@ router.post('/profile/update/:id', function(req, res) {
 
 router.post('/newpoll/poll', function(req, res) {
     var poll = new Poll(req.body);
-    poll.save(function(){
-        console.log('Saved');
-    });
+    poll.save();
 })
 
 router.get('/getpoll/:id', function(req, res){
