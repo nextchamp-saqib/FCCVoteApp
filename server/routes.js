@@ -138,7 +138,7 @@ router.post('/vote/:id', function(req, res){
 
 router.get('*', function(request, response) {
     var userAuth = request.isAuthenticated();
-    var sessionID = request.sessionID;
+    var sessionID = request.connection.remoteAddress;
     var props = { 
         userAuth: userAuth,
         user: (userAuth) ? request.session.passport.user : sessionID
