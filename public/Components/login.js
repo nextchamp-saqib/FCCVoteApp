@@ -10,13 +10,10 @@ class Login extends Component {
         axios({
             method: 'post',
             url: '/login/user',
-            data: {
-                email: 'asdf1234@gmail.com',
-                password: 'asdf1234'
-            }
+            data: data
         }).then(function(response){
             if(response.status == 200){
-                window.location.href = "http://localhost:8080/";
+                window.location.href = "/";
             }
         })
     }
@@ -27,12 +24,12 @@ class Login extends Component {
             <div className="form">
                 <div className="box">
                     <div className="flex">
-                        <div className="label">E-Mail ID:</div>
+                        <div className="label">E-mail ID:</div>
                         <div><input ref="email" type="text" /></div>
                     </div>
                     <div className="flex">
                         <div className="label">Password:</div>
-                        <div><input ref="passLogin" type="text" /></div>
+                        <div><input ref="passLogin" type="password" /></div>
                     </div>
                     <div className="flex">
                         <button className="btn-login" onClick={this.handleLogin.bind(this)}>

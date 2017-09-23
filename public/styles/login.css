@@ -2,7 +2,7 @@
     margin: 50px auto;
 }
 .login-form h3{
-    font-size: 32px;
+    font-size: 40px;
     margin-left: 10%;
     text-align: left;
 }
@@ -30,7 +30,7 @@
     justify-content: flex-end;
 }
 .box .flex div{
-    font-size: 11px;
+    font-size: 14px;
     width: 70%;
     flex-grow: 1;
 }
@@ -42,10 +42,10 @@
 .box .flex input{
     width: 100%;
     outline-color : rgba(0,0,0,0.16);
-    outline-width: 0.5mm;
+    outline-width: 0.7mm;
 }
 .login-form .btn-login{
-    font-size: 11px;
+    font-size: 14px;
     border: 0.3mm solid rgba(0,0,0,0.26);
     width: 43px; 
     background: none;
@@ -54,12 +54,12 @@
 }
 .login-form .btn-login:focus{
     outline: none;
-    border: 0.3mm solid rgba(0,0,0,0.46);
+    border: 0.5mm solid rgba(0,0,0,0.46);
     background-color: rgba(0,0,0,0.05); 
 }
 
 .login-form .btn-google{
-    font-size: 11px;
+    font-size: 14px;
     color: #fff;
     display: block;
     background-color: #dd4b39;
@@ -82,7 +82,7 @@
 }
 
 .login-form .btn-github{
-    font-size: 11px;
+    font-size: 14px;
     display: block;
     color: #fff !important;
     background-color: #444;

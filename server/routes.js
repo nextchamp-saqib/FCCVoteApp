@@ -22,21 +22,22 @@ passport.deserializeUser(function(user, done) {
 //db models
 var mongoose = require('mongoose');
 var Poll = require('./db/Poll');
-var LocalUser  = require('./db/LocalUser');
+var User  = require('./db/User');
 
 
 router.post('/signup/user', function(req, res) {
-    LocalUser.findOne({email: req.body.email }, function(err, user) {
+    var id = Math.floor(Math.random() * 99999999999999999);
+    User.findOne({_id: id, email: req.body.email }, function(err, user) {
        if(user) res.status(500).send('Already exist');
        else{
-            var newUser = new LocalUser({
+            var newUser = new User({ 
+                _id: id,
                 name: req.body.fname +" "+ req.body.lname,
                 email: req.body.email,
                 password: req.body.passSignup
             })
-            newUser.save(function(data){
-                res.status(200).send('OK');
-            });
+            newUser.save();
+            res.status(200).send('OK');
         }
     });
 
@@ -65,14 +66,40 @@ router.get('/signout', function(req, res) {
 
 router.get('/getpolls', function(req, res) {
     Poll.find({}, function(err, data) {
-        if(data) res.send(data);
+        if(data){
+            res.send(data);
+        }
         else throw err
     })
 })
 
-router.get('/getuserpolls/:id', function(req, res) {
-    Poll.find({userID: req.params.id}, function(err, data) {
-        res.send(data);
+router.get('/getuserprofile/:id', function(req, res) {
+    var data = {};
+    Poll.find({userID: req.params.id}, function(err, polls) {
+        data.polls = polls;
+        User.findOne({_id: req.params.id}, function(err, user){
+            data.user = user;
+            data.email = undefined;
+            data.password = undefined;
+            res.send(data);
+        })
+    })
+});
+
+router.delete('/profile/delete', function(req, res){
+    Poll.findByIdAndRemove(req.body.pollID, function(err, data){
+        res.status(200).send('OK');
+    })
+});
+
+router.post('/profile/update/:id', function(req, res) {
+    var id = req.params.id;
+    User.findOne({_id: id}, function(err, user){
+        user.place = req.body.place;
+        user.contact = req.body.contact;
+        user.name = req.body.name;
+        user.save()
+        res.send(user);
     })
 })
 
@@ -111,9 +138,10 @@ router.post('/vote/:id', function(req, res){
 
 router.get('*', function(request, response) {
     var userAuth = request.isAuthenticated();
+    var sessionID = request.sessionID;
     var props = { 
         userAuth: userAuth,
-        user: (userAuth) ? request.session.passport.user : undefined
+        user: (userAuth) ? request.session.passport.user : sessionID
      };
 
     ReactRouter.match({

@@ -18473,7 +18473,7 @@ var NavBar = function (_Component) {
             return _react2.default.createElement(
                 "div",
                 { className: "nav-bar" },
-                _react2.default.createElement("div", { "data-toggle": "collapse", "data-target": "#drop", className: "menu link fa fa-2x fa-bars" }),
+                _react2.default.createElement("div", { "data-toggle": "collapse", "data-target": "#drop", className: "menu link fa fa-4x fa-bars" }),
                 _react2.default.createElement(
                     "div",
                     { id: "drop", className: "collapse" },
@@ -19509,6 +19509,12 @@ var Home = function (_Component) {
     }
 
     _createClass(Home, [{
+        key: "handleClick",
+        value: function handleClick(e) {
+            console.log($(e.target));
+            window.location.href = "/polls";
+        }
+    }, {
         key: "render",
         value: function render() {
             return _react2.default.createElement(
@@ -19534,7 +19540,7 @@ var Home = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-md-3 card" },
+                        { className: "col-md-3 card", onClick: this.handleClick.bind(this) },
                         _react2.default.createElement(
                             "div",
                             { className: "card-block" },
@@ -19553,7 +19559,7 @@ var Home = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-md-3 card" },
+                        { className: "col-md-3 card", onClick: this.handleClick.bind(this) },
                         _react2.default.createElement(
                             "div",
                             { className: "card-block" },
@@ -19572,7 +19578,7 @@ var Home = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-md-3 card" },
+                        { className: "col-md-3 card", onClick: this.handleClick.bind(this) },
                         _react2.default.createElement(
                             "div",
                             { className: "card-block" },
@@ -19591,7 +19597,7 @@ var Home = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-md-3 card" },
+                        { className: "col-md-3 card", onClick: this.handleClick.bind(this) },
                         _react2.default.createElement(
                             "div",
                             { className: "card-block" },
@@ -45672,13 +45678,10 @@ var Login = function (_Component) {
             (0, _axios2.default)({
                 method: 'post',
                 url: '/login/user',
-                data: {
-                    email: 'asdf1234@gmail.com',
-                    password: 'asdf1234'
-                }
+                data: data
             }).then(function (response) {
                 if (response.status == 200) {
-                    window.location.href = "http://localhost:8080/";
+                    window.location.href = "/";
                 }
             });
         }
@@ -45705,7 +45708,7 @@ var Login = function (_Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'label' },
-                                'E-Mail ID:'
+                                'E-mail ID:'
                             ),
                             _react2.default.createElement(
                                 'div',
@@ -45724,7 +45727,7 @@ var Login = function (_Component) {
                             _react2.default.createElement(
                                 'div',
                                 null,
-                                _react2.default.createElement('input', { ref: 'passLogin', type: 'text' })
+                                _react2.default.createElement('input', { ref: 'passLogin', type: 'password' })
                             )
                         ),
                         _react2.default.createElement(
@@ -46676,20 +46679,21 @@ var Signup = function (_Component) {
                 email: self.refs.email.value,
                 passSignup: self.refs.passSignup.value,
                 passConfirm: self.refs.passConfirm.value
-                // data = {
-                //     fname: 'name',
-                //     lname: 'name',
-                //     email: 'asdf1234@gmail.com',
-                //     passSignup: 'game1242',
-                //     passConfirm: 'game1242'
-                // }
-            };if (data.passSignup == data.passConfirm && self.validateForm(data)) {
+            };
+            data = {
+                fname: 'name',
+                lname: 'name',
+                email: 'asdf1234@gmail.com',
+                passSignup: 'game1242',
+                passConfirm: 'game1242'
+            };
+            if (data.passSignup == data.passConfirm && self.validateForm(data)) {
                 (0, _axios2.default)({
                     method: 'post',
                     url: '/signup/user',
                     data: data
                 }).then(function (response) {
-                    if (response.status == 200) window.location.href = "http://localhost:8080/login";else if (response.status == 500) {
+                    if (response.status == 200) window.location.href = "/login";else if (response.status == 500) {
                         //handle existing user
                     }
                 }).catch(function (error) {});
@@ -46845,8 +46849,9 @@ var Profile = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
 
         _this.state = {
-            userID: JSON.parse(props.custom).user._id,
-            name: JSON.parse(props.custom).user.name,
+            user: {
+                userID: JSON.parse(props.custom).user._id
+            },
             polls: []
         };
         return _this;
@@ -46858,10 +46863,16 @@ var Profile = function (_Component) {
             var self = this;
             (0, _axios2.default)({
                 method: 'get',
-                url: 'http://localhost:8080/getuserpolls/' + self.state.userID
+                url: '/getuserprofile/' + self.state.user.userID
             }).then(function (response) {
                 self.setState({
-                    polls: response.data
+                    user: {
+                        userID: response.data.user._id,
+                        place: response.data.user.place,
+                        name: response.data.user.name,
+                        contact: response.data.user.contact
+                    },
+                    polls: response.data.polls
                 });
             }).catch(function (err) {
                 console.log(err);
@@ -46870,10 +46881,16 @@ var Profile = function (_Component) {
     }, {
         key: 'mapPolls',
         value: function mapPolls(poll, id) {
+            var self = this;
             var href = "/polls/view/" + poll._id;
             return _react2.default.createElement(
                 'div',
                 { key: id, className: 'poll' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'delete-poll', onClick: self.handleDelete.bind(self), id: poll._id },
+                    _react2.default.createElement('i', { id: poll._id, className: 'fa fa-2x fa-trash' })
+                ),
                 _react2.default.createElement(
                     'div',
                     { className: 'poll-topic' },
@@ -46907,6 +46924,50 @@ var Profile = function (_Component) {
             );
         }
     }, {
+        key: 'handleUpdate',
+        value: function handleUpdate() {
+            var name = this.refs.name.value;
+            var contact = this.refs.contact.value;
+            var place = this.refs.place.value;
+            var self = this;
+            (0, _axios2.default)({
+                method: 'post',
+                url: 'profile/update/' + self.state.user.userID,
+                data: {
+                    name: name,
+                    contact: contact,
+                    place: place
+                }
+            }).then(function (response) {
+                self.setState({
+                    user: {
+                        userID: response.data._id,
+                        place: response.data.place,
+                        name: response.data.name,
+                        contact: response.data.contact
+                    }
+                });
+                window.location.href = "/profile";
+            }).catch(function (err) {
+                console.log(err);
+            });
+        }
+    }, {
+        key: 'handleDelete',
+        value: function handleDelete(e) {
+            (0, _axios2.default)({
+                method: 'delete',
+                url: '/profile/delete',
+                data: {
+                    pollID: e.target.id
+                }
+            }).then(function (respone) {
+                if (respone.status == 200) {
+                    window.location.href = '/profile';
+                }
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -46921,11 +46982,6 @@ var Profile = function (_Component) {
                     'div',
                     { className: 'profile-img' },
                     _react2.default.createElement('i', { className: 'fa fa-5x fa-user' })
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'profile-name' },
-                    '/u/user'
                 ),
                 _react2.default.createElement(
                     'div',
@@ -46949,7 +47005,7 @@ var Profile = function (_Component) {
                             _react2.default.createElement(
                                 'div',
                                 null,
-                                _react2.default.createElement('input', { id: 'name', type: 'text' })
+                                _react2.default.createElement('input', { ref: 'name', type: 'text', placeholder: this.state.user.name })
                             )
                         ),
                         _react2.default.createElement(
@@ -46963,7 +47019,7 @@ var Profile = function (_Component) {
                             _react2.default.createElement(
                                 'div',
                                 null,
-                                _react2.default.createElement('input', { id: 'contact', type: 'text' })
+                                _react2.default.createElement('input', { ref: 'contact', type: 'number', placeholder: this.state.user.contact })
                             )
                         ),
                         _react2.default.createElement(
@@ -46977,7 +47033,7 @@ var Profile = function (_Component) {
                             _react2.default.createElement(
                                 'div',
                                 null,
-                                _react2.default.createElement('input', { id: 'place', type: 'text' })
+                                _react2.default.createElement('input', { ref: 'place', type: 'text', placeholder: this.state.user.place })
                             )
                         ),
                         _react2.default.createElement(
@@ -46985,9 +47041,9 @@ var Profile = function (_Component) {
                             { className: 'flex' },
                             _react2.default.createElement(
                                 'button',
-                                { className: 'btn-update' },
+                                { className: 'btn-update', onClick: this.handleUpdate.bind(this) },
                                 _react2.default.createElement('i', { className: ' fa fa-pencil-square-o' }),
-                                'Update'
+                                ' Update'
                             )
                         )
                     )
@@ -47004,7 +47060,7 @@ var Profile = function (_Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'polls-list' },
-                        this.state.polls.map(this.mapPolls)
+                        this.state.polls.map(this.mapPolls.bind(this))
                     )
                 )
             );
@@ -47066,6 +47122,7 @@ var Polls = function (_Component) {
                 self.setState({
                     polls: response.data
                 });
+                console.log(response.data);
             });
         }
     }, {
@@ -47185,8 +47242,12 @@ var ViewPoll = function (_Component) {
         var _this = _possibleConstructorReturn(this, (ViewPoll.__proto__ || Object.getPrototypeOf(ViewPoll)).call(this, props));
 
         var pollId = _this.props.params.splat;
+        if (JSON.parse(_this.props.custom).userAuth) _this.state = {
+            userID: JSON.parse(_this.props.custom).user._id
+        };else _this.state = {
+            userID: JSON.parse(_this.props.custom).user
+        };
         _this.state = {
-            userID: JSON.parse(_this.props.custom).user._id,
             pollId: _this.props.params.splat,
             poll: {
                 userID: '',
@@ -47324,13 +47385,16 @@ var ViewPoll = function (_Component) {
                                         _react2.default.createElement(
                                             'span',
                                             { className: 'input-group-addon' },
-                                            _react2.default.createElement('input', { type: 'radio', onChange: self.handleRadio, value: item._id })
+                                            _react2.default.createElement('input', { type: 'radio', name: "vote" + id, onChange: self.handleRadio, value: item._id })
+                                        ),
+                                        _react2.default.createElement(
+                                            'label',
+                                            { className: 'input-group-addon option', htmlFor: "vote" + id },
+                                            item.option
                                         ),
                                         _react2.default.createElement(
                                             'span',
-                                            { className: 'input-group-addon option' },
-                                            item.option,
-                                            ' Votes: ',
+                                            { className: 'input-group-addon badge' },
                                             item.voters.length
                                         )
                                     )

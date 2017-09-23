@@ -6,8 +6,15 @@ class ViewPoll extends Component {
     constructor(props) {
         super(props);
         var pollId = this.props.params.splat;
+        if(JSON.parse(this.props.custom).userAuth)
+            this.state = {
+                userID: JSON.parse(this.props.custom).user._id,
+            }
+        else 
+            this.state = {
+                userID: JSON.parse(this.props.custom).user
+            }
         this.state = {
-            userID: JSON.parse(this.props.custom).user._id,
             pollId: this.props.params.splat,
             poll: {
                 userID: '',
@@ -113,9 +120,10 @@ class ViewPoll extends Component {
                                     <li key={id} className="list-group-item">
                                         <div className="input-group">
                                             <span className="input-group-addon">
-                                                <input type="radio" onChange={self.handleRadio} value={item._id} />
+                                                <input type="radio" name={"vote"+id} onChange={self.handleRadio} value={item._id} />
                                             </span>
-                                            <span className="input-group-addon option">{item.option} Votes: {item.voters.length}</span>
+                                            <label className="input-group-addon option" htmlFor={"vote"+id}>{item.option}</label>
+                                            <span className="input-group-addon badge">{item.voters.length}</span>
                                         </div>
                                     </li>
                                 )

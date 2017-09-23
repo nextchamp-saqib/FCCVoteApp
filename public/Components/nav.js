@@ -30,7 +30,7 @@ class NavBar extends Component {
     render() {
         return (
             <div className="nav-bar">
-                <div data-toggle="collapse" data-target="#drop" className="menu link fa fa-2x fa-bars" />
+                <div data-toggle="collapse" data-target="#drop" className="menu link fa fa-4x fa-bars" />
                 <div id="drop" className="collapse">
                     <div className="navleft">
                         <div className="navlink">

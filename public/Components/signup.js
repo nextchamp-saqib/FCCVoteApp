@@ -12,13 +12,13 @@ class Signup extends Component {
             passSignup: self.refs.passSignup.value,
             passConfirm: self.refs.passConfirm.value            
         }
-        // data = {
-        //     fname: 'name',
-        //     lname: 'name',
-        //     email: 'asdf1234@gmail.com',
-        //     passSignup: 'game1242',
-        //     passConfirm: 'game1242'
-        // }
+        data = {
+            fname: 'name',
+            lname: 'name',
+            email: 'asdf1234@gmail.com',
+            passSignup: 'game1242',
+            passConfirm: 'game1242'
+        }
         if(data.passSignup == data.passConfirm && self.validateForm(data)){
             axios({
                 method: 'post',
@@ -26,7 +26,7 @@ class Signup extends Component {
                 data: data
             }).then(function(response) {
                 if(response.status == 200)
-                    window.location.href = "http://localhost:8080/login";
+                    window.location.href = "/login";
                 else if(response.status == 500){
                     //handle existing user
                 }

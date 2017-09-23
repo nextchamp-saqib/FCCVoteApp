@@ -1,12 +1,12 @@
 var passport = require('passport')
 , LocalStrategy = require('passport-local').Strategy;
-var LocalUser = require('../db/LocalUser');
+var User = require('../db/User');
 
 passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'
   }, function(username, password, done) {
-  LocalUser.findOne({
+  User.findOne({
       email: username,
       password: password
     }, function (err, user) {

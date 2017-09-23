@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 class Home extends Component {
+    handleClick(e){
+        console.log($(e.target));
+        window.location.href = "/polls";
+    }
     render() {
         return (
             <div className="container-fluid">
@@ -9,7 +13,7 @@ class Home extends Component {
                     <p className="lead">...your ideas <i className="fa fa-lightbulb-o" /></p>
                 </div>
                 <div className="row">
-                    <div className="col-md-3 card">
+                    <div className="col-md-3 card" onClick={this.handleClick.bind(this)}>
                         <div className="card-block">
                             <h3 className="card-title">
                                 <span className="fa fa-thumbs-o-up" />
@@ -20,7 +24,7 @@ class Home extends Component {
                             </p>
                         </div>
                     </div>
-                    <div className="col-md-3 card">
+                    <div className="col-md-3 card" onClick={this.handleClick.bind(this)}>
                         <div className="card-block">
                             <h3 className="card-title">
                                 <span className="fa fa-plus-circle" />
@@ -29,7 +33,7 @@ class Home extends Component {
                             <p className="card-text">Create your own poll by signing up or loging in using Google account.</p>
                         </div>
                     </div>
-                    <div className="col-md-3 card">
+                    <div className="col-md-3 card" onClick={this.handleClick.bind(this)}>
                         <div className="card-block">
                             <h3 className="card-title">
                                 <span className="fa fa-eye" />
@@ -38,7 +42,7 @@ class Home extends Component {
                             <p className="card-text">View results of current polls in real-time.</p>
                         </div>
                     </div>
-                    <div className="col-md-3 card">
+                    <div className="col-md-3 card" onClick={this.handleClick.bind(this)}>
                         <div className="card-block">
                             <h3 className="card-title">
                             <span className="fa fa-share-alt" />
