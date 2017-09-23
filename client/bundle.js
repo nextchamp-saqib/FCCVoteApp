@@ -46680,13 +46680,6 @@ var Signup = function (_Component) {
                 passSignup: self.refs.passSignup.value,
                 passConfirm: self.refs.passConfirm.value
             };
-            data = {
-                fname: 'name',
-                lname: 'name',
-                email: 'asdf1234@gmail.com',
-                passSignup: 'game1242',
-                passConfirm: 'game1242'
-            };
             if (data.passSignup == data.passConfirm && self.validateForm(data)) {
                 (0, _axios2.default)({
                     method: 'post',
@@ -46899,7 +46892,8 @@ var Profile = function (_Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'poll-author' },
-                    poll.userID
+                    'by: ',
+                    poll.name
                 ),
                 _react2.default.createElement(
                     'div',
@@ -47140,7 +47134,8 @@ var Polls = function (_Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'poll-author' },
-                    poll.userID
+                    'by: ',
+                    poll.name
                 ),
                 _react2.default.createElement(
                     'div',
@@ -47242,11 +47237,13 @@ var ViewPoll = function (_Component) {
         var _this = _possibleConstructorReturn(this, (ViewPoll.__proto__ || Object.getPrototypeOf(ViewPoll)).call(this, props));
 
         var pollId = _this.props.params.splat;
+        console.log(JSON.parse(props.custom).user);
         if (JSON.parse(_this.props.custom).userAuth) _this.state = {
             userID: JSON.parse(_this.props.custom).user._id,
             pollId: _this.props.params.splat,
             poll: {
                 userID: '',
+                name: '',
                 title: '',
                 options: []
             }
@@ -47256,6 +47253,7 @@ var ViewPoll = function (_Component) {
                 pollId: _this.props.params.splat,
                 poll: {
                     userID: '',
+                    name: '',
                     title: '',
                     options: []
                 }
@@ -47354,7 +47352,8 @@ var ViewPoll = function (_Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'poll-author' },
-                        poll.userID
+                        'by: ',
+                        poll.name
                     ),
                     _react2.default.createElement(
                         'div',
@@ -60454,6 +60453,7 @@ var NewPoll = function (_Component) {
             if (JSON.parse(this.props.custom).userAuth) {
                 var data = {
                     userID: JSON.parse(this.props.custom).user._id,
+                    name: JSON.parse(this.props.custom).user.name,
                     title: this.refs.title.value,
                     options: [{
                         option: this.refs.op1.value,
@@ -60476,7 +60476,7 @@ var NewPoll = function (_Component) {
                 });
             } else {
                 //user not authenticated
-                this.refs.create.href = "http://localhost:8080/login";
+                this.refs.create.href = "/login";
             }
         }
     }, {

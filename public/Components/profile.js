@@ -39,7 +39,7 @@ class Profile extends Component {
             <div key={id} className="poll">
                 <div className="delete-poll" onClick={self.handleDelete.bind(self)} id={poll._id}><i id={poll._id} className="fa fa-2x fa-trash"/></div>
                 <div className="poll-topic">{poll.title}</div>
-                <div className="poll-author">{poll.userID}</div>
+                <div className="poll-author">by: {poll.name}</div>
                 <div className="view-poll"><a href={href}><i className="fa fa-list-alt"/> &nbsp;View</a></div>
                 <div className="share-poll"><a href={href}><i className="fa fa-facebook"/> &nbsp;Share</a></div>
             </div>

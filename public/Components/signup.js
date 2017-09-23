@@ -12,13 +12,6 @@ class Signup extends Component {
             passSignup: self.refs.passSignup.value,
             passConfirm: self.refs.passConfirm.value            
         }
-        data = {
-            fname: 'name',
-            lname: 'name',
-            email: 'asdf1234@gmail.com',
-            passSignup: 'game1242',
-            passConfirm: 'game1242'
-        }
         if(data.passSignup == data.passConfirm && self.validateForm(data)){
             axios({
                 method: 'post',

@@ -58,10 +58,13 @@ router.get('/auth/google/callback', passport.authenticate('google', {
 }));
 
 router.get('/signout', function(req, res) {
-    var id = req.sessionID;
-    req.logout();
-    req.session.destroy();
-    res.redirect('/');
+    if(req.isAuthenticated()){
+        req.logout();
+        req.session.destroy();
+        res.redirect('/');
+    }else {
+        res.redirect('/');
+    }
 });
 
 router.get('/getpolls', function(req, res) {

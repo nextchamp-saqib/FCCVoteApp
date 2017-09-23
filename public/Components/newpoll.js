@@ -10,6 +10,7 @@ class NewPoll extends Component {
         if(JSON.parse(this.props.custom).userAuth){
             const data = {
                 userID: JSON.parse(this.props.custom).user._id,
+                name: JSON.parse(this.props.custom).user.name,
                 title : this.refs.title.value,
                 options: [{
                     option: this.refs.op1.value,
@@ -35,7 +36,7 @@ class NewPoll extends Component {
             })
         }else {
             //user not authenticated
-            this.refs.create.href = "http://localhost:8080/login";
+            this.refs.create.href = "/login";
         }
     }
     render() {
