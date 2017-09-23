@@ -47358,11 +47358,6 @@ var ViewPoll = function (_Component) {
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'poll-author' },
-                        this.state.userID
-                    ),
-                    _react2.default.createElement(
-                        'div',
                         { className: 'share-poll' },
                         _react2.default.createElement(
                             'a',

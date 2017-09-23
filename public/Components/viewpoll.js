@@ -114,7 +114,6 @@ class ViewPoll extends Component {
                 <div className="poll">
                     <div className="poll-topic">{poll.title}</div>
                     <div className="poll-author">{poll.userID}</div>
-                    <div className="poll-author">{this.state.userID}</div>
                     <div className="share-poll"><a href="/polls/view/5"><i className="fa fa-facebook"/> &nbsp;Share</a></div>
                 </div>
                 <div className="poll-info">
