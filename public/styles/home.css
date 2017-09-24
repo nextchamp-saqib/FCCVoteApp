@@ -3,7 +3,6 @@
     padding: 0;
 }
 .jumbotron{
-    /* background-color: #CFD8DC; */
     border-radius: 0;
     color: black;
     text-align: center;
@@ -21,7 +20,7 @@
 }
 .row .card{
     margin: 0 !important;
-    background-color: rgba(218, 27, 27, 0.80);
+    background-color: rgba(218, 27, 27, 0.75);
     color: white;
     border-radius: 0;
     border: 1px solid black;
