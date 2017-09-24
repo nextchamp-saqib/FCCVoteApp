@@ -47116,7 +47116,6 @@ var Polls = function (_Component) {
                 self.setState({
                     polls: response.data
                 });
-                console.log(response.data);
             });
         }
     }, {

@@ -18,7 +18,6 @@ class Polls extends Component {
             self.setState({
                 polls : response.data
             })
-            console.log(response.data);
         })
     }
     
