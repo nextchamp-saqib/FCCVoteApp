@@ -13,7 +13,10 @@ class Login extends Component {
             data: data
         }).then(function(response){
             if(response.status == 200){
+                alert('You are now logged in.');
                 window.location.href = "/";
+            }else {
+                alert('Login credentials not valid.');
             }
         })
     }

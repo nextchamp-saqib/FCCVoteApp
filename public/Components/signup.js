@@ -21,25 +21,33 @@ class Signup extends Component {
                 if(response.status == 200)
                     window.location.href = "/login";
                 else if(response.status == 500){
-                    //handle existing user
+                    alert('Email already exists.')
                 }
             }).catch(function(error) {
 
             })
+        } else {
+            alert("Password doesn't match");
         }
     }
     validateForm(data) {
         var nameTest = /\w{3,}/;
         var emailTest = /[a-z0-9]{5,}@[a-z]+.[a-z]{3}/;
         var passTest = /[A-z0-9]{8,}/;
-        if(nameTest.test(data.fname)&&
-            nameTest.test(data.lname)&&
-            emailTest.test(data.email)&&
-            passTest.test(data.passSignup)){
-                return true;
-            }
-        else {
+        if(!nameTest.test(data.fname)){
+            alert('First Name should have 3 or more alphabets.')
             return false;
+        }else if(!nameTest.test(data.lname)){
+            alert('Last Name should have 3 or more alphabets.')
+            return false;
+        }else if(!emailTest.test(data.email)){
+            alert('Email should should be of more than 5 characters long and must contain @ sign.')
+            return false;
+        }else if(!passTest.test(data.passSignup)){
+            alert('Password should have alphabets and numbers and must be 8 or more char long.');
+            return false;
+        }else {
+            return true;
         }
     }
     render() {

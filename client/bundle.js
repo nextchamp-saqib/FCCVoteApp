@@ -18355,11 +18355,9 @@ var Layout = function (_Component) {
                     ),
                     _react2.default.createElement('meta', { charSet: 'UTF-8' }),
                     _react2.default.createElement('meta', { name: 'viewport', content: 'width=device-width, initial-scale=1' }),
-                    _react2.default.createElement('link', { rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', integrity: 'sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ', crossOrigin: 'anonymous' }),
-                    _react2.default.createElement('script', { src: 'https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity: 'sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossOrigin: 'anonymous' }),
-                    _react2.default.createElement('script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity: 'sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossOrigin: 'anonymous' }),
-                    _react2.default.createElement('script', { src: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity: 'sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossOrigin: 'anonymous' }),
-                    _react2.default.createElement('link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' }),
+                    _react2.default.createElement('link', { rel: 'stylesheet', href: '/styles/bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css' }),
+                    _react2.default.createElement('link', { href: '/styles/jquery-3.2.1.slim.min.js' }),
+                    _react2.default.createElement('link', { href: '/styles/bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.js' }),
                     _react2.default.createElement('link', { rel: 'stylesheet', href: '/styles/main.css' })
                 ),
                 _react2.default.createElement(
@@ -45681,7 +45679,10 @@ var Login = function (_Component) {
                 data: data
             }).then(function (response) {
                 if (response.status == 200) {
+                    alert('You are now logged in.');
                     window.location.href = "/";
+                } else {
+                    alert('Login credentials not valid.');
                 }
             });
         }
@@ -46687,9 +46688,11 @@ var Signup = function (_Component) {
                     data: data
                 }).then(function (response) {
                     if (response.status == 200) window.location.href = "/login";else if (response.status == 500) {
-                        //handle existing user
+                        alert('Email already exists.');
                     }
                 }).catch(function (error) {});
+            } else {
+                alert("Password doesn't match");
             }
         }
     }, {
@@ -46698,10 +46701,20 @@ var Signup = function (_Component) {
             var nameTest = /\w{3,}/;
             var emailTest = /[a-z0-9]{5,}@[a-z]+.[a-z]{3}/;
             var passTest = /[A-z0-9]{8,}/;
-            if (nameTest.test(data.fname) && nameTest.test(data.lname) && emailTest.test(data.email) && passTest.test(data.passSignup)) {
-                return true;
-            } else {
+            if (!nameTest.test(data.fname)) {
+                alert('First Name should have 3 or more alphabets.');
                 return false;
+            } else if (!nameTest.test(data.lname)) {
+                alert('Last Name should have 3 or more alphabets.');
+                return false;
+            } else if (!emailTest.test(data.email)) {
+                alert('Email should should be of more than 5 characters long and must contain @ sign.');
+                return false;
+            } else if (!passTest.test(data.passSignup)) {
+                alert('Password should have alphabets and numbers and must be 8 or more char long.');
+                return false;
+            } else {
+                return true;
             }
         }
     }, {

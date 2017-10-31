@@ -10,10 +10,10 @@ require('dotenv').config();
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-mongoose.connect(process.env.MONGOURL,{
+// mongoose.connect(process.env.MONGOURI);
+mongoose.connect(process.env.MONGOURI,{
     useMongoClient: true
 });
-
 //react stuff
 require('babel-core/register')({
     presets: ['react', 'es2015']
